@@ -1,0 +1,26 @@
+﻿Joshua Project People Group Data
+
+JPScale,JPStage,JPScaleDescription,TotalPopulation,PctGlobalPopulation,CountofPGIC,PctGlobalPGIC,JPScaleEvangelicals,JPScaleAdherents
+1,Unreached,"Few evangelicals and few who identify as Christians.  Little, if any, history of Christianity.",3187099000,41.5554883393919,7367,42.5912007862635,"Evangelicals <= 2%","Professing Christians <= 5%"
+2,"Minimally reached","Few evangelicals, but significant number who identify as Christians.",276048000,3.59928970321576,1184,6.84511765045962,"Evangelicals <= 2%","Professing Christians > 5% and <= 50%"
+3,"Superficially reached","Few evangelicals, but many who identify as Christians. In great need of spiritual renewal and commitment to biblical faith.",532232000,6.93958982386983,1794,10.3717407642944,"Evangelicals <= 2%","Professing Christians > 50%"
+4,"Partially reached","Evangelicals have a modest presence.",1943884000,25.3456388133833,3734,21.5875585361623,"Evangelicals > 2% and <= 10%",
+5,"Significantly reached","Evangelicals have a significant presence.",1730239000,22.5599933201392,3218,18.6043822628201,"Evangelicals > 10%",
+
+Bible Translation status:
+0,Unspecified
+1,Translation Needed
+2,Translation Started
+3,Portions
+4,New Testament
+5,Complete Bible
+
+"Joshua Project welcomes corrections / updates to this data.  Please send feedback to:"
+
+Email:,info@joshuaproject.net
+Web:,www.joshuaproject.net
+Office:,719.886.4000
+Postal:,Joshua Project 
+,PO Box 62614
+,"Colorado Springs, CO 80962"
+,United States

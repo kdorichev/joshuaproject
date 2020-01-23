@@ -28,12 +28,14 @@ def url_path_query(path:str,cntry:str=None,pgid:str=None,extra=None,month=None,d
     return Url(scheme='https', host='joshuaproject.net', path=path, query=query).url
 
 # Cell
-# All people groups in a specific country
 url_pgs_cntry  = partial(url_path_query,'/api/v2/people_groups')
-url_pgs_cntry.__doc__ = """partial_func docstring"""
-# A people group in a specific country
+url_pgs_cntry.__doc__ = """Get all people groups in a specific country."""
+
 url_pg_cntry   = partial(url_pgs_cntry)
-# All unreached people groups in a specific country
+url_pg_cntry.__doc__ = """Get a specific people group in a specific country."""
+
 url_upgs_cntry = partial(url_pgs_cntry,extra='LeastReached=Y')
-# A UPG of the day
+url_upgs_cntry.__doc__ = """Get all unreached people groups in a specific country."""
+
 url_upgotd     = partial(url_path_query,'/api/v2/upgotd')
+url_upgotd.__doc__ = """Get data for the UPG of the day."""

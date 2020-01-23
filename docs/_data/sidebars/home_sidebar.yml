@@ -10,7 +10,7 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: Joshua Project Python Library Core Functions
+      title: Core Functions
       url: /core
     output: web
     title: joshuaproject

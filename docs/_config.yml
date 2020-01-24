@@ -2,7 +2,7 @@ repository: kdorichev/joshuaproject
 output: web
 topnav_title: joshuaproject
 site_title: joshuaproject
-company_name: Konstantin DOrichev
+company_name: Konstantin Dorichev
 description: Python library for JoshuaProject.net
 # Set to false to disable KaTeX math
 use_math: true

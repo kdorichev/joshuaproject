@@ -11,7 +11,7 @@ from functools import partial
 from datetime import date
 
 # Cell
-def url_path_query(path:str,cntry:str=None,pgid:str=None,extra=None,month=None,day=None)->str:
+def url_path_query(path:str,cntry:str=None,pgid:str=None,extra=None,month=None,day=None,api_key='w3NOS49TW7fg')->str:
     """Builds and returns a string url to query `path` for `cntry`
     with optional `pgid`,`extra`,`month` and `day`."""
     query = ''

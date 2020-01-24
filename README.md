@@ -5,7 +5,7 @@
 ![](logo-800x300.png)
 
 This library uses [Joshua Project's APIv2](https://joshuaproject.net/api/v2).
-You'll need an **`api_key`** to use API and the library. Get it [here](https://joshuaproject.net/api/v2).
+You'll need an **`api_key`** to use API and the library.
 For details, see [**Documentation**](https://joshuaproject.net/api/v2/documentation).
 
 ## Install
@@ -21,10 +21,14 @@ For details, see [**Documentation**](https://joshuaproject.net/api/v2/documentat
 From [here](https://joshuaproject.net/api/v2) and set it in a variable or pass to functions:
 
 ```python
-api_key='set_your_key'
+api_key='your_api_key'
 ```
 
-Get all people groups in a specific country. Countries are encoded 
+#### 2. Get all people groups in a specific country. 
+
+Countries are currently encoded as two-letter codes according to *US Federal Information Processing Standard (FIPS)*, which is absolete a bit differs from the international **ISO 3166** standard. See [details](https://www.geodatasource.com/resources/tutorials/international-country-code-fips-versus-iso-3166/).
+
+The library provides a helper function to work around the current ambiguity.
 
 ```python
 url_pgs_cntry('RS',api_key=api_key)

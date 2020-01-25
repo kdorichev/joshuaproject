@@ -12,6 +12,8 @@ index = {"api_key": "00_core.ipynb",
          "url_upgs_cntry.__doc__": "00_core.ipynb",
          "url_pg_cntry": "00_core.ipynb",
          "url_pg_cntry.__doc__": "00_core.ipynb",
+         "url_pg_cntries": "00_core.ipynb",
+         "url_pg_cntries.__doc__": "00_core.ipynb",
          "url_cntry": "00_core.ipynb",
          "url_cntry.__doc__": "00_core.ipynb"}
 

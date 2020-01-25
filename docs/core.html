@@ -36,6 +36,9 @@ summary: "Python library to access online data from the Joshua Project via APIv2
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
 <div class="output_wrapper">
 <div class="output">
 
@@ -43,7 +46,7 @@ summary: "Python library to access online data from the Joshua Project via APIv2
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="url_path_query" class="doc_header"><code>url_path_query</code><a href="https://github.com/kdorichev/joshuaproject/tree/master/joshuaproject/core.py#L15" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>url_path_query</code>(<strong><code>path</code></strong>:<code>str</code>, <strong><code>cntry</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>pgid</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>extra</code></strong>=<em><code>None</code></em>, <strong><code>month</code></strong>=<em><code>None</code></em>, <strong><code>day</code></strong>=<em><code>None</code></em>, <strong><code>api_key</code></strong>=<em><code>'your_api_key'</code></em>)</p>
+<h3 id="url_path_query" class="doc_header"><code>url_path_query</code><a href="https://github.com/kdorichev/joshuaproject/tree/master/joshuaproject/core.py#L18" class="source_link" style="float:right">[source]</a></h3><blockquote><p><code>url_path_query</code>(<strong><code>path</code></strong>:<code>str</code>, <strong><code>cntry</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>pgid</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>extra</code></strong>=<em><code>None</code></em>, <strong><code>month</code></strong>=<em><code>None</code></em>, <strong><code>day</code></strong>=<em><code>None</code></em>, <strong><code>api_key</code></strong>=<em><code>'your_api_key'</code></em>)</p>
 </blockquote>
 <p>Builds and returns a string url to query <code>path</code> for <code>cntry</code>
 with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>day</code>.</p>
@@ -58,7 +61,7 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="/joshuaproject/core#url_path_query"><code>url_path_query</code></a> is a generic low-level function. It requires specification of required <code>path</code> and if used without other specific arguments, returns over 17000 records.</p>
+<p><a href="/joshuaproject/core#url_path_query"><code>url_path_query</code></a> is a <strong>generic low-level</strong> function. It requires specification of required <code>path</code> and if used without other specific arguments, returns over 17000 records.</p>
 <p><code>cntry</code> is a two-letter country code as was specified in FIPS 10-4 (US Federal Information Processing Standard), which is now absolete a bit differs from the international ISO 3166 standard. See details.</p>
 <p>The library provides a helper function to work around the current ambiguity.</p>
 <p><code>pgid</code> is a string with people group id.</p>
@@ -74,7 +77,7 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">url_path_query</span><span class="p">(</span><span class="s1">&#39;/api/v2/people_groups&#39;</span><span class="p">),</span>
-        <span class="s1">&#39;https://joshuaproject.net/api/v2/people_groups?&amp;api_key=your_api_key&#39;</span><span class="p">)</span>
+        <span class="n">f</span><span class="s1">&#39;https://joshuaproject.net/api/v2/people_groups?&amp;api_key=</span><span class="si">{api_key}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -82,12 +85,9 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Unreached-People-Group-of-the-Day">Unreached People Group of the Day<a class="anchor-link" href="#Unreached-People-Group-of-the-Day">&#182;</a></h3>
+<h3 id="url_upgotd----Unreached-People-Group-of-the-Day">url_upgotd -- Unreached People Group of the Day<a class="anchor-link" href="#url_upgotd----Unreached-People-Group-of-the-Day">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -99,100 +99,10 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_eq</span><span class="p">(</span>
-    <span class="n">url_upgotd</span><span class="p">(</span><span class="n">month</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
-    <span class="s1">&#39;https://joshuaproject.net/api/v2/upgotd?&amp;LRofTheDayMonth=10&amp;LRofTheDayDay=1&amp;api_key=your_api_key&#39;</span><span class="p">)</span>
-
-<span class="n">m</span><span class="p">,</span><span class="n">d</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%-m&quot;</span><span class="p">),</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%-d</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="p">,</span><span class="n">d</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%-m&quot;</span><span class="p">),</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%-d</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">test_eq</span><span class="p">(</span>
     <span class="n">url_upgotd</span><span class="p">(),</span>
-    <span class="n">f</span><span class="s1">&#39;https://joshuaproject.net/api/v2/upgotd?&amp;LRofTheDayMonth=</span><span class="si">{m}</span><span class="s1">&amp;LRofTheDayDay=</span><span class="si">{d}</span><span class="s1">&amp;api_key=your_api_key&#39;</span><span class="p">)</span>
-
-<span class="n">m</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%-m&quot;</span><span class="p">)</span>
-<span class="n">test_eq</span><span class="p">(</span>
-    <span class="n">url_upgotd</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="s1">&#39;15&#39;</span><span class="p">),</span>
-    <span class="n">f</span><span class="s1">&#39;https://joshuaproject.net/api/v2/upgotd?&amp;LRofTheDayMonth=</span><span class="si">{m}</span><span class="s1">&amp;LRofTheDayDay=</span><span class="si">{15}</span><span class="s1">&amp;api_key=your_api_key&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url_upgotd</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="s1">&#39;12&#39;</span><span class="p">,</span><span class="n">month</span><span class="o">=</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%-m&quot;</span><span class="p">)),</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(&#39;https://joshuaproject.net/api/v2/upgotd?&amp;LRofTheDayMonth=1&amp;LRofTheDayDay=12&amp;api_key=your_api_key&#39;,)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Unreached-People-Groups-in-the-Country">Unreached People Groups in the Country<a class="anchor-link" href="#Unreached-People-Groups-in-the-Country">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url_upgs_cntry</span><span class="p">(</span><span class="s1">&#39;IN&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;https://joshuaproject.net/api/v2/people_groups?ROG3=IN&amp;LeastReached=Y&amp;api_key=your_api_key&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># assert  url_pgs_cntry(&#39;EN&#39;) == &#39;http://joshuaproject.net/api/v2/people_groups?ROG3=EN&amp;api_key=w3NOS49TW7fg&#39;</span>
-<span class="c1"># assert url_upgs_cntry(&#39;EN&#39;) == &#39;http://joshuaproject.net/api/v2/people_groups?ROG3=EN&amp;LeastReached=Y&amp;api_key=w3NOS49TW7fg&#39;</span>
+    <span class="n">f</span><span class="s1">&#39;https://joshuaproject.net/api/v2/upgotd?&amp;LRofTheDayMonth=</span><span class="si">{m}</span><span class="s1">&amp;LRofTheDayDay=</span><span class="si">{d}</span><span class="s1">&amp;api_key=</span><span class="si">{api_key}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -202,7 +112,17 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Testing">Testing<a class="anchor-link" href="#Testing">&#182;</a></h2>
+<h3 id="url_pgs_cntry----People-Groups-in-the-Country">url_pgs_cntry -- People Groups in the Country<a class="anchor-link" href="#url_pgs_cntry----People-Groups-in-the-Country">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Note</strong>, since <code>cntry</code> is the first positional argument, it can be passed by value only.</p>
+
 </div>
 </div>
 </div>
@@ -211,900 +131,72 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">http</span> <span class="o">=</span> <span class="n">urllib3</span><span class="o">.</span><span class="n">PoolManager</span><span class="p">(</span><span class="n">cert_reqs</span><span class="o">=</span><span class="s1">&#39;CERT_REQUIRED&#39;</span><span class="p">,</span><span class="n">ca_certs</span><span class="o">=</span><span class="n">certifi</span><span class="o">.</span><span class="n">where</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">country</span> <span class="o">=</span> <span class="s1">&#39;EN&#39;</span>
+<span class="n">test_eq</span><span class="p">(</span><span class="n">url_pgs_cntry</span><span class="p">(</span><span class="n">country</span><span class="p">),</span>
+    <span class="n">f</span><span class="s1">&#39;https://joshuaproject.net/api/v2/people_groups?ROG3=</span><span class="si">{country}</span><span class="s1">&amp;api_key=</span><span class="si">{api_key}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="n">url_pgs_cntry</span><span class="p">(</span><span class="s1">&#39;RS&#39;</span><span class="p">)</span>
-<span class="n">url</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;https://joshuaproject.net/api/v2/people_groups?ROG3=RS&amp;api_key=w3NOS49TW7fg&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">resp</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span><span class="n">url</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
-    <span class="n">resp_j</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">resp_j</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">][</span><span class="s1">&#39;status_code&#39;</span><span class="p">]</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">resp_j</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">][</span><span class="s1">&#39;message&#39;</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{s}</span><span class="s1">: </span><span class="si">{m}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="n">url_pg_cntry</span><span class="p">(</span><span class="s1">&#39;IN&#39;</span><span class="p">,</span><span class="s1">&#39;16152&#39;</span><span class="p">)</span>
-<span class="n">url</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;https://joshuaproject.net/api/v2/people_groups?ROG3=IN&amp;PeopleID3=16152&amp;api_key=w3NOS49TW7fg&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">resp_j</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">resp_j</span><span class="p">[</span><span class="s1">&#39;meta&#39;</span><span class="p">][</span><span class="s1">&#39;pagination&#39;</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{&#39;total_count&#39;: 180, &#39;total_pages&#39;: 2, &#39;current_page&#39;: 1, &#39;limit&#39;: 100}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Add procedding for multi-page results</span>
-<span class="c1"># for i in range(resp_j[&#39;meta&#39;][&#39;pagination&#39;][&#39;total_count&#39;]):</span>
-<span class="c1">#     print(resp_j[&#39;data&#39;][i][&#39;PeopNameInCountry&#39;])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">resp_j</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{&#39;PeopleID3ROG3&#39;: &#39;10125RS&#39;,
- &#39;ROG3&#39;: &#39;RS&#39;,
- &#39;Ctry&#39;: &#39;Russia&#39;,
- &#39;CtryShort&#39;: &#39;Russia&#39;,
- &#39;CtryLiteracyRate&#39;: 100,
- &#39;CtryLiteracySource&#39;: &#39;Ethnologue 2018&#39;,
- &#39;PeopleID3&#39;: 10125,
- &#39;ROP3&#39;: 100011,
- &#39;PeopNameInCountry&#39;: &#39;Abaza&#39;,
- &#39;PeopNameAcrossCountries&#39;: &#39;Abaza&#39;,
- &#39;Population&#39;: 45000,
- &#39;ROG2&#39;: &#39;ASI&#39;,
- &#39;Continent&#39;: &#39;Asia&#39;,
- &#39;RegionCode&#39;: 9,
- &#39;RegionName&#39;: &#39;Europe, Eastern and Eurasia&#39;,
- &#39;10_40Window&#39;: &#39;N&#39;,
- &#39;LocationInCountry&#39;: &#39;Karachayevo-Cherkesiya and Stavropol’skiy Kray.&#39;,
- &#39;PeopleID1&#39;: 12,
- &#39;AffinityBloc&#39;: &#39;Eurasian Peoples&#39;,
- &#39;PeopleID2&#39;: 157,
- &#39;PeopleCluster&#39;: &#39;Caucasus&#39;,
- &#39;JPScalePC&#39;: 2,
- &#39;PopulationPGAC&#39;: 73000,
- &#39;JPScalePGAC&#39;: 1,
- &#39;JPScale&#39;: 1,
- &#39;JPScaleTemp&#39;: None,
- &#39;LeastReached&#39;: &#39;Y&#39;,
- &#39;Frontier&#39;: &#39;Y&#39;,
- &#39;WorkersNeeded&#39;: 1,
- &#39;Subgroups&#39;: None,
- &#39;ROL3&#39;: &#39;abq&#39;,
- &#39;PrimaryLanguageName&#39;: &#39;Abaza&#39;,
- &#39;ROL4&#39;: 0,
- &#39;PrimaryLanguageDialect&#39;: None,
- &#39;Written&#39;: &#39;Y&#39;,
- &#39;BibleStatus&#39;: 0,
- &#39;NumberLanguagesSpoken&#39;: 1,
- &#39;RLG3&#39;: 6,
- &#39;PrimaryReligion&#39;: &#39;Islam&#39;,
- &#39;RLG4&#39;: None,
- &#39;ReligionSubdivision&#39;: None,
- &#39;PercentAdherents&#39;: 0.1,
- &#39;CountAdherents&#39;: 45,
- &#39;PercentEvangelical&#39;: 0.022,
- &#39;CountEvangelical&#39;: 10,
- &#39;PCBuddhism&#39;: 0,
- &#39;PCDblyProfessing&#39;: 0,
- &#39;PCEthnicReligions&#39;: 0,
- &#39;PCHinduism&#39;: 0,
- &#39;PCIslam&#39;: 96.9,
- &#39;PCNonReligious&#39;: 3,
- &#39;PCOtherSmall&#39;: 0,
- &#39;PCUnknown&#39;: 0,
- &#39;PCAnglican&#39;: 0,
- &#39;PCIndependent&#39;: 20,
- &#39;PCProtestant&#39;: 20,
- &#39;PCOrthodox&#39;: 30,
- &#39;PCOtherChristian&#39;: 0,
- &#39;PCRomanCatholic&#39;: 30,
- &#39;IndigenousCode&#39;: &#39;Y&#39;,
- &#39;CasteClass&#39;: None,
- &#39;LRofTheDayYear&#39;: None,
- &#39;Photo&#39;: &#39;Y&#39;,
- &#39;PhotoAddress&#39;: &#39;https://joshuaproject.net/assets/media/profiles/photos/p10125.jpg&#39;,
- &#39;PhotoGood&#39;: &#39;Y&#39;,
- &#39;PhotoCredits&#39;: &#39;Lawrence Jatker&#39;,
- &#39;PhotoCreditURL&#39;: None,
- &#39;PhotoCreativeCommons&#39;: &#39;N&#39;,
- &#39;PhotoCopyright&#39;: &#39;N&#39;,
- &#39;Map&#39;: &#39;Y&#39;,
- &#39;MapAddress&#39;: &#39;https://joshuaproject.net/assets/media/profiles/maps/m10125_rs.png&#39;,
- &#39;MapCredits&#39;: &#39;People Group Location from IMB. Other map data / geography from GMI. Map by Joshua Project.&#39;,
- &#39;MapCreditURL&#39;: None,
- &#39;MapCopyright&#39;: &#39;N&#39;,
- &#39;GSEC&#39;: 1,
- &#39;JF&#39;: &#39;N&#39;,
- &#39;AudioRecordings&#39;: &#39;N&#39;,
- &#39;NTOnline&#39;: &#39;&#39;,
- &#39;GospelRadio&#39;: &#39;N&#39;,
- &#39;PEID&#39;: 48739,
- &#39;Longitude&#39;: 41.88952,
- &#39;Latitude&#39;: 44.22168}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/country_codes.csv&#39;</span><span class="p">,</span><span class="n">skiprows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country_name&#39;</span><span class="p">,</span><span class="s1">&#39;FIPS&#39;</span><span class="p">,</span><span class="s1">&#39;ISO&#39;</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cc</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[{&#39;Country_name&#39;: &#39;Afghanistan&#39;, &#39;FIPS&#39;: &#39;AF&#39;, &#39;ISO&#39;: &#39;AF&#39;},
- {&#39;Country_name&#39;: &#39;Aland Islands&#39;, &#39;FIPS&#39;: nan, &#39;ISO&#39;: &#39;AX&#39;},
- {&#39;Country_name&#39;: &#39;Albania&#39;, &#39;FIPS&#39;: &#39;AL&#39;, &#39;ISO&#39;: &#39;AL&#39;},
- {&#39;Country_name&#39;: &#39;Algeria&#39;, &#39;FIPS&#39;: &#39;AG&#39;, &#39;ISO&#39;: &#39;DZ&#39;},
- {&#39;Country_name&#39;: &#39;American Samoa&#39;, &#39;FIPS&#39;: &#39;AQ&#39;, &#39;ISO&#39;: &#39;AS&#39;}]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cci</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;ISO&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cci</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Country_name&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[{&#39;FIPS&#39;: &#39;AF&#39;},
- {&#39;FIPS&#39;: nan},
- {&#39;FIPS&#39;: &#39;AL&#39;},
- {&#39;FIPS&#39;: &#39;AG&#39;},
- {&#39;FIPS&#39;: &#39;AQ&#39;},
- {&#39;FIPS&#39;: &#39;AN&#39;},
- {&#39;FIPS&#39;: &#39;AO&#39;},
- {&#39;FIPS&#39;: &#39;AV&#39;},
- {&#39;FIPS&#39;: &#39;AY&#39;},
- {&#39;FIPS&#39;: &#39;AC&#39;},
- {&#39;FIPS&#39;: &#39;AR&#39;},
- {&#39;FIPS&#39;: &#39;AM&#39;},
- {&#39;FIPS&#39;: &#39;AA&#39;},
- {&#39;FIPS&#39;: &#39;AS&#39;},
- {&#39;FIPS&#39;: &#39;AU&#39;},
- {&#39;FIPS&#39;: &#39;AJ&#39;},
- {&#39;FIPS&#39;: &#39;BF&#39;},
- {&#39;FIPS&#39;: &#39;BA&#39;},
- {&#39;FIPS&#39;: &#39;BG&#39;},
- {&#39;FIPS&#39;: &#39;BB&#39;},
- {&#39;FIPS&#39;: &#39;BO&#39;},
- {&#39;FIPS&#39;: &#39;BE&#39;},
- {&#39;FIPS&#39;: &#39;BH&#39;},
- {&#39;FIPS&#39;: &#39;BN&#39;},
- {&#39;FIPS&#39;: &#39;BD&#39;},
- {&#39;FIPS&#39;: &#39;BT&#39;},
- {&#39;FIPS&#39;: &#39;BL&#39;},
- {&#39;FIPS&#39;: nan},
- {&#39;FIPS&#39;: &#39;BK&#39;},
- {&#39;FIPS&#39;: &#39;BC&#39;},
- {&#39;FIPS&#39;: &#39;BV&#39;},
- {&#39;FIPS&#39;: &#39;BR&#39;},
- {&#39;FIPS&#39;: &#39;IO&#39;},
- {&#39;FIPS&#39;: &#39;BX&#39;},
- {&#39;FIPS&#39;: &#39;BU&#39;},
- {&#39;FIPS&#39;: &#39;UV&#39;},
- {&#39;FIPS&#39;: &#39;BY&#39;},
- {&#39;FIPS&#39;: &#39;CV&#39;},
- {&#39;FIPS&#39;: &#39;CB&#39;},
- {&#39;FIPS&#39;: &#39;CM&#39;},
- {&#39;FIPS&#39;: &#39;CA&#39;},
- {&#39;FIPS&#39;: &#39;CJ&#39;},
- {&#39;FIPS&#39;: &#39;CT&#39;},
- {&#39;FIPS&#39;: &#39;CD&#39;},
- {&#39;FIPS&#39;: &#39;CI&#39;},
- {&#39;FIPS&#39;: &#39;CH&#39;},
- {&#39;FIPS&#39;: &#39;KT&#39;},
- {&#39;FIPS&#39;: &#39;CK&#39;},
- {&#39;FIPS&#39;: &#39;CO&#39;},
- {&#39;FIPS&#39;: &#39;CN&#39;},
- {&#39;FIPS&#39;: &#39;CF&#39;},
- {&#39;FIPS&#39;: &#39;CG&#39;},
- {&#39;FIPS&#39;: &#39;CW&#39;},
- {&#39;FIPS&#39;: &#39;CS&#39;},
- {&#39;FIPS&#39;: &#39;IV&#39;},
- {&#39;FIPS&#39;: &#39;HR&#39;},
- {&#39;FIPS&#39;: &#39;CU&#39;},
- {&#39;FIPS&#39;: &#39;UC&#39;},
- {&#39;FIPS&#39;: &#39;CY&#39;},
- {&#39;FIPS&#39;: &#39;EZ&#39;},
- {&#39;FIPS&#39;: &#39;DK&#39;},
- {&#39;FIPS&#39;: &#39;DJ&#39;},
- {&#39;FIPS&#39;: &#39;DO&#39;},
- {&#39;FIPS&#39;: &#39;DR&#39;},
- {&#39;FIPS&#39;: &#39;EC&#39;},
- {&#39;FIPS&#39;: &#39;EG&#39;},
- {&#39;FIPS&#39;: &#39;ES&#39;},
- {&#39;FIPS&#39;: &#39;EK&#39;},
- {&#39;FIPS&#39;: &#39;ER&#39;},
- {&#39;FIPS&#39;: &#39;EN&#39;},
- {&#39;FIPS&#39;: &#39;ET&#39;},
- {&#39;FIPS&#39;: &#39;FK&#39;},
- {&#39;FIPS&#39;: &#39;FO&#39;},
- {&#39;FIPS&#39;: &#39;FJ&#39;},
- {&#39;FIPS&#39;: &#39;FI&#39;},
- {&#39;FIPS&#39;: &#39;FR&#39;},
- {&#39;FIPS&#39;: &#39;FG&#39;},
- {&#39;FIPS&#39;: &#39;FP&#39;},
- {&#39;FIPS&#39;: &#39;FS&#39;},
- {&#39;FIPS&#39;: &#39;GB&#39;},
- {&#39;FIPS&#39;: &#39;GA&#39;},
- {&#39;FIPS&#39;: &#39;GG&#39;},
- {&#39;FIPS&#39;: &#39;GM&#39;},
- {&#39;FIPS&#39;: &#39;GH&#39;},
- {&#39;FIPS&#39;: &#39;GI&#39;},
- {&#39;FIPS&#39;: &#39;GR&#39;},
- {&#39;FIPS&#39;: &#39;GL&#39;},
- {&#39;FIPS&#39;: &#39;GJ&#39;},
- {&#39;FIPS&#39;: &#39;GP&#39;},
- {&#39;FIPS&#39;: &#39;GQ&#39;},
- {&#39;FIPS&#39;: &#39;GT&#39;},
- {&#39;FIPS&#39;: &#39;GK&#39;},
- {&#39;FIPS&#39;: &#39;GV&#39;},
- {&#39;FIPS&#39;: &#39;PU&#39;},
- {&#39;FIPS&#39;: &#39;GY&#39;},
- {&#39;FIPS&#39;: &#39;HA&#39;},
- {&#39;FIPS&#39;: &#39;HM&#39;},
- {&#39;FIPS&#39;: &#39;VT&#39;},
- {&#39;FIPS&#39;: &#39;HO&#39;},
- {&#39;FIPS&#39;: &#39;HK&#39;},
- {&#39;FIPS&#39;: &#39;HU&#39;},
- {&#39;FIPS&#39;: &#39;IC&#39;},
- {&#39;FIPS&#39;: &#39;IN&#39;},
- {&#39;FIPS&#39;: &#39;ID&#39;},
- {&#39;FIPS&#39;: &#39;IR&#39;},
- {&#39;FIPS&#39;: &#39;IZ&#39;},
- {&#39;FIPS&#39;: &#39;EI&#39;},
- {&#39;FIPS&#39;: &#39;IM&#39;},
- {&#39;FIPS&#39;: &#39;IS&#39;},
- {&#39;FIPS&#39;: &#39;IT&#39;},
- {&#39;FIPS&#39;: &#39;JM&#39;},
- {&#39;FIPS&#39;: &#39;JA&#39;},
- {&#39;FIPS&#39;: &#39;JE&#39;},
- {&#39;FIPS&#39;: &#39;JO&#39;},
- {&#39;FIPS&#39;: &#39;KZ&#39;},
- {&#39;FIPS&#39;: &#39;KE&#39;},
- {&#39;FIPS&#39;: &#39;KR&#39;},
- {&#39;FIPS&#39;: &#39;KN&#39;},
- {&#39;FIPS&#39;: &#39;KS&#39;},
- {&#39;FIPS&#39;: &#39;KU&#39;},
- {&#39;FIPS&#39;: &#39;KG&#39;},
- {&#39;FIPS&#39;: &#39;LA&#39;},
- {&#39;FIPS&#39;: &#39;LG&#39;},
- {&#39;FIPS&#39;: &#39;LE&#39;},
- {&#39;FIPS&#39;: &#39;LT&#39;},
- {&#39;FIPS&#39;: &#39;LI&#39;},
- {&#39;FIPS&#39;: &#39;LY&#39;},
- {&#39;FIPS&#39;: &#39;LS&#39;},
- {&#39;FIPS&#39;: &#39;LH&#39;},
- {&#39;FIPS&#39;: &#39;LU&#39;},
- {&#39;FIPS&#39;: &#39;MC&#39;},
- {&#39;FIPS&#39;: &#39;MK&#39;},
- {&#39;FIPS&#39;: &#39;MA&#39;},
- {&#39;FIPS&#39;: &#39;MI&#39;},
- {&#39;FIPS&#39;: &#39;MY&#39;},
- {&#39;FIPS&#39;: &#39;MV&#39;},
- {&#39;FIPS&#39;: &#39;ML&#39;},
- {&#39;FIPS&#39;: &#39;MT&#39;},
- {&#39;FIPS&#39;: &#39;RM&#39;},
- {&#39;FIPS&#39;: &#39;MB&#39;},
- {&#39;FIPS&#39;: &#39;MR&#39;},
- {&#39;FIPS&#39;: &#39;MP&#39;},
- {&#39;FIPS&#39;: &#39;MF&#39;},
- {&#39;FIPS&#39;: &#39;MX&#39;},
- {&#39;FIPS&#39;: &#39;FM&#39;},
- {&#39;FIPS&#39;: &#39;MD&#39;},
- {&#39;FIPS&#39;: &#39;MN&#39;},
- {&#39;FIPS&#39;: &#39;MG&#39;},
- {&#39;FIPS&#39;: &#39;MJ&#39;},
- {&#39;FIPS&#39;: &#39;MH&#39;},
- {&#39;FIPS&#39;: &#39;MO&#39;},
- {&#39;FIPS&#39;: &#39;MZ&#39;},
- {&#39;FIPS&#39;: &#39;BM&#39;},
- {&#39;FIPS&#39;: &#39;WA&#39;},
- {&#39;FIPS&#39;: &#39;NR&#39;},
- {&#39;FIPS&#39;: &#39;NP&#39;},
- {&#39;FIPS&#39;: &#39;NL&#39;},
- {&#39;FIPS&#39;: &#39;NC&#39;},
- {&#39;FIPS&#39;: &#39;NZ&#39;},
- {&#39;FIPS&#39;: &#39;NU&#39;},
- {&#39;FIPS&#39;: &#39;NG&#39;},
- {&#39;FIPS&#39;: &#39;NI&#39;},
- {&#39;FIPS&#39;: &#39;NE&#39;},
- {&#39;FIPS&#39;: &#39;NF&#39;},
- {&#39;FIPS&#39;: &#39;CQ&#39;},
- {&#39;FIPS&#39;: &#39;NO&#39;},
- {&#39;FIPS&#39;: &#39;MU&#39;},
- {&#39;FIPS&#39;: &#39;PK&#39;},
- {&#39;FIPS&#39;: &#39;PS&#39;},
- {&#39;FIPS&#39;: &#39;WE&#39;},
- {&#39;FIPS&#39;: &#39;PM&#39;},
- {&#39;FIPS&#39;: &#39;PP&#39;},
- {&#39;FIPS&#39;: &#39;PA&#39;},
- {&#39;FIPS&#39;: &#39;PE&#39;},
- {&#39;FIPS&#39;: &#39;RP&#39;},
- {&#39;FIPS&#39;: &#39;PC&#39;},
- {&#39;FIPS&#39;: &#39;PL&#39;},
- {&#39;FIPS&#39;: &#39;PO&#39;},
- {&#39;FIPS&#39;: &#39;RQ&#39;},
- {&#39;FIPS&#39;: &#39;QA&#39;},
- {&#39;FIPS&#39;: &#39;RE&#39;},
- {&#39;FIPS&#39;: &#39;RO&#39;},
- {&#39;FIPS&#39;: &#39;RS&#39;},
- {&#39;FIPS&#39;: &#39;RW&#39;},
- {&#39;FIPS&#39;: &#39;TB&#39;},
- {&#39;FIPS&#39;: &#39;SH&#39;},
- {&#39;FIPS&#39;: &#39;SC&#39;},
- {&#39;FIPS&#39;: &#39;ST&#39;},
- {&#39;FIPS&#39;: &#39;RN&#39;},
- {&#39;FIPS&#39;: &#39;SB&#39;},
- {&#39;FIPS&#39;: &#39;VC&#39;},
- {&#39;FIPS&#39;: &#39;WS&#39;},
- {&#39;FIPS&#39;: &#39;SM&#39;},
- {&#39;FIPS&#39;: &#39;TP&#39;},
- {&#39;FIPS&#39;: &#39;SA&#39;},
- {&#39;FIPS&#39;: &#39;SG&#39;},
- {&#39;FIPS&#39;: &#39;RI&#39;},
- {&#39;FIPS&#39;: &#39;SE&#39;},
- {&#39;FIPS&#39;: &#39;SL&#39;},
- {&#39;FIPS&#39;: &#39;SN&#39;},
- {&#39;FIPS&#39;: &#39;NN&#39;},
- {&#39;FIPS&#39;: &#39;LO&#39;},
- {&#39;FIPS&#39;: &#39;SI&#39;},
- {&#39;FIPS&#39;: &#39;BP&#39;},
- {&#39;FIPS&#39;: &#39;SO&#39;},
- {&#39;FIPS&#39;: &#39;SF&#39;},
- {&#39;FIPS&#39;: &#39;SX&#39;},
- {&#39;FIPS&#39;: &#39;OD&#39;},
- {&#39;FIPS&#39;: &#39;SP&#39;},
- {&#39;FIPS&#39;: &#39;CE&#39;},
- {&#39;FIPS&#39;: &#39;SU&#39;},
- {&#39;FIPS&#39;: &#39;NS&#39;},
- {&#39;FIPS&#39;: &#39;SV&#39;},
- {&#39;FIPS&#39;: &#39;WZ&#39;},
- {&#39;FIPS&#39;: &#39;SW&#39;},
- {&#39;FIPS&#39;: &#39;SZ&#39;},
- {&#39;FIPS&#39;: &#39;SY&#39;},
- {&#39;FIPS&#39;: &#39;TW&#39;},
- {&#39;FIPS&#39;: &#39;TI&#39;},
- {&#39;FIPS&#39;: &#39;TZ&#39;},
- {&#39;FIPS&#39;: &#39;TH&#39;},
- {&#39;FIPS&#39;: &#39;TT&#39;},
- {&#39;FIPS&#39;: &#39;TO&#39;},
- {&#39;FIPS&#39;: &#39;TL&#39;},
- {&#39;FIPS&#39;: &#39;TN&#39;},
- {&#39;FIPS&#39;: &#39;TD&#39;},
- {&#39;FIPS&#39;: &#39;TS&#39;},
- {&#39;FIPS&#39;: &#39;TU&#39;},
- {&#39;FIPS&#39;: &#39;TX&#39;},
- {&#39;FIPS&#39;: &#39;TK&#39;},
- {&#39;FIPS&#39;: &#39;TV&#39;},
- {&#39;FIPS&#39;: &#39;UG&#39;},
- {&#39;FIPS&#39;: &#39;UA&#39;},
- {&#39;FIPS&#39;: &#39;AE&#39;},
- {&#39;FIPS&#39;: &#39;UK&#39;},
- {&#39;FIPS&#39;: &#39;US&#39;},
- {&#39;FIPS&#39;: nan},
- {&#39;FIPS&#39;: &#39;UY&#39;},
- {&#39;FIPS&#39;: &#39;UZ&#39;},
- {&#39;FIPS&#39;: &#39;NH&#39;},
- {&#39;FIPS&#39;: &#39;VE&#39;},
- {&#39;FIPS&#39;: &#39;VN&#39;},
- {&#39;FIPS&#39;: &#39;VI&#39;},
- {&#39;FIPS&#39;: &#39;VQ&#39;},
- {&#39;FIPS&#39;: &#39;WF&#39;},
- {&#39;FIPS&#39;: &#39;WI&#39;},
- {&#39;FIPS&#39;: &#39;YM&#39;},
- {&#39;FIPS&#39;: &#39;ZA&#39;},
- {&#39;FIPS&#39;: &#39;ZI&#39;}]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cci</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;dict&#39;</span><span class="p">)[</span><span class="s1">&#39;Country_name&#39;</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{&#39;AF&#39;: &#39;Afghanistan&#39;,
- &#39;AX&#39;: &#39;Aland Islands&#39;,
- &#39;AL&#39;: &#39;Albania&#39;,
- &#39;DZ&#39;: &#39;Algeria&#39;,
- &#39;AS&#39;: &#39;American Samoa&#39;,
- &#39;AD&#39;: &#39;Andorra&#39;,
- &#39;AO&#39;: &#39;Angola&#39;,
- &#39;AI&#39;: &#39;Anguilla&#39;,
- &#39;AQ&#39;: &#39;Antarctica&#39;,
- &#39;AG&#39;: &#39;Antigua and Barbuda&#39;,
- &#39;AR&#39;: &#39;Argentina&#39;,
- &#39;AM&#39;: &#39;Armenia&#39;,
- &#39;AW&#39;: &#39;Aruba&#39;,
- &#39;AU&#39;: &#39;Australia&#39;,
- &#39;AT&#39;: &#39;Austria&#39;,
- &#39;AZ&#39;: &#39;Azerbaijan&#39;,
- &#39;BS&#39;: &#39;Bahamas&#39;,
- &#39;BH&#39;: &#39;Bahrain&#39;,
- &#39;BD&#39;: &#39;Bangladesh&#39;,
- &#39;BB&#39;: &#39;Barbados&#39;,
- &#39;BY&#39;: &#39;Belarus&#39;,
- &#39;BE&#39;: &#39;Belgium&#39;,
- &#39;BZ&#39;: &#39;Belize&#39;,
- &#39;BJ&#39;: &#39;Benin&#39;,
- &#39;BM&#39;: &#39;Bermuda&#39;,
- &#39;BT&#39;: &#39;Bhutan&#39;,
- &#39;BO&#39;: &#39;Bolivia, Plurinational State Of&#39;,
- &#39;BQ&#39;: &#39;Bonaire, Sint Eustatius and Saba&#39;,
- &#39;BA&#39;: &#39;Bosnia and Herzegovina&#39;,
- &#39;BW&#39;: &#39;Botswana&#39;,
- &#39;BV&#39;: &#39;Bouvet Island&#39;,
- &#39;BR&#39;: &#39;Brazil&#39;,
- &#39;IO&#39;: &#39;British Indian Ocean Territory&#39;,
- &#39;BN&#39;: &#39;Brunei Darussalam&#39;,
- &#39;BG&#39;: &#39;Bulgaria&#39;,
- &#39;BF&#39;: &#39;Burkina Faso&#39;,
- &#39;BI&#39;: &#39;Burundi&#39;,
- &#39;CV&#39;: &#39;Cabo Verde&#39;,
- &#39;KH&#39;: &#39;Cambodia&#39;,
- &#39;CM&#39;: &#39;Cameroon&#39;,
- &#39;CA&#39;: &#39;Canada&#39;,
- &#39;KY&#39;: &#39;Cayman Islands&#39;,
- &#39;CF&#39;: &#39;Central African Republic&#39;,
- &#39;TD&#39;: &#39;Chad&#39;,
- &#39;CL&#39;: &#39;Chile&#39;,
- &#39;CN&#39;: &#39;China&#39;,
- &#39;CX&#39;: &#39;Christmas Island&#39;,
- &#39;CC&#39;: &#39;Cocos (Keeling) Islands&#39;,
- &#39;CO&#39;: &#39;Colombia&#39;,
- &#39;KM&#39;: &#39;Comoros&#39;,
- &#39;CG&#39;: &#39;Congo&#39;,
- &#39;CD&#39;: &#39;Congo, the Democratic Republic of the&#39;,
- &#39;CK&#39;: &#39;Cook Islands&#39;,
- &#39;CR&#39;: &#39;Costa Rica&#39;,
- &#39;CI&#39;: &#39;Cote d’Ivoire&#39;,
- &#39;HR&#39;: &#39;Croatia&#39;,
- &#39;CU&#39;: &#39;Cuba&#39;,
- &#39;CW&#39;: &#39;Curacao&#39;,
- &#39;CY&#39;: &#39;Cyprus&#39;,
- &#39;CZ&#39;: &#39;Czechia&#39;,
- &#39;DK&#39;: &#39;Denmark&#39;,
- &#39;DJ&#39;: &#39;Djibouti&#39;,
- &#39;DM&#39;: &#39;Dominica&#39;,
- &#39;DO&#39;: &#39;Dominican Republic&#39;,
- &#39;EC&#39;: &#39;Ecuador&#39;,
- &#39;EG&#39;: &#39;Egypt&#39;,
- &#39;SV&#39;: &#39;El Salvador&#39;,
- &#39;GQ&#39;: &#39;Equatorial Guinea&#39;,
- &#39;ER&#39;: &#39;Eritrea&#39;,
- &#39;EE&#39;: &#39;Estonia&#39;,
- &#39;ET&#39;: &#39;Ethiopia&#39;,
- &#39;FK&#39;: &#39;Falkland Islands (Malvinas)&#39;,
- &#39;FO&#39;: &#39;Faroe Islands&#39;,
- &#39;FJ&#39;: &#39;Fiji&#39;,
- &#39;FI&#39;: &#39;Finland&#39;,
- &#39;FR&#39;: &#39;France&#39;,
- &#39;GF&#39;: &#39;French Guiana&#39;,
- &#39;PF&#39;: &#39;French Polynesia&#39;,
- &#39;TF&#39;: &#39;French Southern Territories&#39;,
- &#39;GA&#39;: &#39;Gabon&#39;,
- &#39;GM&#39;: &#39;Gambia&#39;,
- &#39;GE&#39;: &#39;Georgia&#39;,
- &#39;DE&#39;: &#39;Germany&#39;,
- &#39;GH&#39;: &#39;Ghana&#39;,
- &#39;GI&#39;: &#39;Gibraltar&#39;,
- &#39;GR&#39;: &#39;Greece&#39;,
- &#39;GL&#39;: &#39;Greenland&#39;,
- &#39;GD&#39;: &#39;Grenada&#39;,
- &#39;GP&#39;: &#39;Guadeloupe&#39;,
- &#39;GU&#39;: &#39;Guam&#39;,
- &#39;GT&#39;: &#39;Guatemala&#39;,
- &#39;GG&#39;: &#39;Guernsey&#39;,
- &#39;GN&#39;: &#39;Guinea&#39;,
- &#39;GW&#39;: &#39;Guinea-Bissau&#39;,
- &#39;GY&#39;: &#39;Guyana&#39;,
- &#39;HT&#39;: &#39;Haiti&#39;,
- &#39;HM&#39;: &#39;Heard Island and McDonald Islands&#39;,
- &#39;VA&#39;: &#39;Holy See&#39;,
- &#39;HN&#39;: &#39;Honduras&#39;,
- &#39;HK&#39;: &#39;Hong Kong&#39;,
- &#39;HU&#39;: &#39;Hungary&#39;,
- &#39;IS&#39;: &#39;Iceland&#39;,
- &#39;IN&#39;: &#39;India&#39;,
- &#39;ID&#39;: &#39;Indonesia&#39;,
- &#39;IR&#39;: &#39;Iran, Islamic Republic of&#39;,
- &#39;IQ&#39;: &#39;Iraq&#39;,
- &#39;IE&#39;: &#39;Ireland&#39;,
- &#39;IM&#39;: &#39;Isle of Man&#39;,
- &#39;IL&#39;: &#39;Israel&#39;,
- &#39;IT&#39;: &#39;Italy&#39;,
- &#39;JM&#39;: &#39;Jamaica&#39;,
- &#39;JP&#39;: &#39;Japan&#39;,
- &#39;JE&#39;: &#39;Jersey&#39;,
- &#39;JO&#39;: &#39;Jordan&#39;,
- &#39;KZ&#39;: &#39;Kazakhstan&#39;,
- &#39;KE&#39;: &#39;Kenya&#39;,
- &#39;KI&#39;: &#39;Kiribati&#39;,
- &#39;KP&#39;: &#39;Korea, Democratic People’s Republic of&#39;,
- &#39;KR&#39;: &#39;Korea, Republic of&#39;,
- &#39;KW&#39;: &#39;Kuwait&#39;,
- &#39;KG&#39;: &#39;Kyrgyzstan&#39;,
- &#39;LA&#39;: &#39;Lao People’s Democratic Republic&#39;,
- &#39;LV&#39;: &#39;Latvia&#39;,
- &#39;LB&#39;: &#39;Lebanon&#39;,
- &#39;LS&#39;: &#39;Lesotho&#39;,
- &#39;LR&#39;: &#39;Liberia&#39;,
- &#39;LY&#39;: &#39;Libya&#39;,
- &#39;LI&#39;: &#39;Liechtenstein&#39;,
- &#39;LT&#39;: &#39;Lithuania&#39;,
- &#39;LU&#39;: &#39;Luxembourg&#39;,
- &#39;MO&#39;: &#39;Macao&#39;,
- &#39;MK&#39;: &#39;Macedonia, the former Yugoslav Republic of&#39;,
- &#39;MG&#39;: &#39;Madagascar&#39;,
- &#39;MW&#39;: &#39;Malawi&#39;,
- &#39;MY&#39;: &#39;Malaysia&#39;,
- &#39;MV&#39;: &#39;Maldives&#39;,
- &#39;ML&#39;: &#39;Mali&#39;,
- &#39;MT&#39;: &#39;Malta&#39;,
- &#39;MH&#39;: &#39;Marshall Islands&#39;,
- &#39;MQ&#39;: &#39;Martinique&#39;,
- &#39;MR&#39;: &#39;Mauritania&#39;,
- &#39;MU&#39;: &#39;Mauritius&#39;,
- &#39;YT&#39;: &#39;Mayotte&#39;,
- &#39;MX&#39;: &#39;Mexico&#39;,
- &#39;FM&#39;: &#39;Micronesia, Federated States of&#39;,
- &#39;MD&#39;: &#39;Moldova, Republic of&#39;,
- &#39;MC&#39;: &#39;Monaco&#39;,
- &#39;MN&#39;: &#39;Mongolia&#39;,
- &#39;ME&#39;: &#39;Montenegro&#39;,
- &#39;MS&#39;: &#39;Montserrat&#39;,
- &#39;MA&#39;: &#39;Morocco&#39;,
- &#39;MZ&#39;: &#39;Mozambique&#39;,
- &#39;MM&#39;: &#39;Myanmar&#39;,
- nan: &#39;Namibia&#39;,
- &#39;NR&#39;: &#39;Nauru&#39;,
- &#39;NP&#39;: &#39;Nepal&#39;,
- &#39;NL&#39;: &#39;Netherlands&#39;,
- &#39;NC&#39;: &#39;New Caledonia&#39;,
- &#39;NZ&#39;: &#39;New Zealand&#39;,
- &#39;NI&#39;: &#39;Nicaragua&#39;,
- &#39;NE&#39;: &#39;Niger&#39;,
- &#39;NG&#39;: &#39;Nigeria&#39;,
- &#39;NU&#39;: &#39;Niue&#39;,
- &#39;NF&#39;: &#39;Norfolk Island&#39;,
- &#39;MP&#39;: &#39;Northern Mariana Islands&#39;,
- &#39;NO&#39;: &#39;Norway&#39;,
- &#39;OM&#39;: &#39;Oman&#39;,
- &#39;PK&#39;: &#39;Pakistan&#39;,
- &#39;PW&#39;: &#39;Palau&#39;,
- &#39;PS&#39;: &#39;Palestine, State of&#39;,
- &#39;PA&#39;: &#39;Panama&#39;,
- &#39;PG&#39;: &#39;Papua New Guinea&#39;,
- &#39;PY&#39;: &#39;Paraguay&#39;,
- &#39;PE&#39;: &#39;Peru&#39;,
- &#39;PH&#39;: &#39;Philippines&#39;,
- &#39;PN&#39;: &#39;Pitcairn&#39;,
- &#39;PL&#39;: &#39;Poland&#39;,
- &#39;PT&#39;: &#39;Portugal&#39;,
- &#39;PR&#39;: &#39;Puerto Rico&#39;,
- &#39;QA&#39;: &#39;Qatar&#39;,
- &#39;RE&#39;: &#39;Reunion&#39;,
- &#39;RO&#39;: &#39;Romania&#39;,
- &#39;RU&#39;: &#39;Russian Federation&#39;,
- &#39;RW&#39;: &#39;Rwanda&#39;,
- &#39;BL&#39;: &#39;Saint Barthelemy&#39;,
- &#39;SH&#39;: &#39;Saint Helena, Ascension and Tristan da Cunha&#39;,
- &#39;KN&#39;: &#39;Saint Kitts and Nevis&#39;,
- &#39;LC&#39;: &#39;Saint Lucia&#39;,
- &#39;MF&#39;: &#39;Saint Martin&#39;,
- &#39;PM&#39;: &#39;Saint Pierre and Miquelon&#39;,
- &#39;VC&#39;: &#39;Saint Vincent and the Grenadines&#39;,
- &#39;WS&#39;: &#39;Samoa&#39;,
- &#39;SM&#39;: &#39;San Marino&#39;,
- &#39;ST&#39;: &#39;Sao Tome and Principe&#39;,
- &#39;SA&#39;: &#39;Saudi Arabia&#39;,
- &#39;SN&#39;: &#39;Senegal&#39;,
- &#39;RS&#39;: &#39;Serbia&#39;,
- &#39;SC&#39;: &#39;Seychelles&#39;,
- &#39;SL&#39;: &#39;Sierra Leone&#39;,
- &#39;SG&#39;: &#39;Singapore&#39;,
- &#39;SX&#39;: &#39;Sint Maarten&#39;,
- &#39;SK&#39;: &#39;Slovakia&#39;,
- &#39;SI&#39;: &#39;Slovenia&#39;,
- &#39;SB&#39;: &#39;Solomon Islands&#39;,
- &#39;SO&#39;: &#39;Somalia&#39;,
- &#39;ZA&#39;: &#39;South Africa&#39;,
- &#39;GS&#39;: &#39;South Georgia and the South Sandwich Islands&#39;,
- &#39;SS&#39;: &#39;South Sudan&#39;,
- &#39;ES&#39;: &#39;Spain&#39;,
- &#39;LK&#39;: &#39;Sri Lanka&#39;,
- &#39;SD&#39;: &#39;Sudan&#39;,
- &#39;SR&#39;: &#39;Suriname&#39;,
- &#39;SJ&#39;: &#39;Svalbard and Jan Mayen&#39;,
- &#39;SZ&#39;: &#39;Swaziland&#39;,
- &#39;SE&#39;: &#39;Sweden&#39;,
- &#39;CH&#39;: &#39;Switzerland&#39;,
- &#39;SY&#39;: &#39;Syrian Arab Republic&#39;,
- &#39;TW&#39;: &#39;Taiwan&#39;,
- &#39;TJ&#39;: &#39;Tajikistan&#39;,
- &#39;TZ&#39;: &#39;Tanzania, United Republic of&#39;,
- &#39;TH&#39;: &#39;Thailand&#39;,
- &#39;TL&#39;: &#39;Timor-Leste&#39;,
- &#39;TG&#39;: &#39;Togo&#39;,
- &#39;TK&#39;: &#39;Tokelau&#39;,
- &#39;TO&#39;: &#39;Tonga&#39;,
- &#39;TT&#39;: &#39;Trinidad and Tobago&#39;,
- &#39;TN&#39;: &#39;Tunisia&#39;,
- &#39;TR&#39;: &#39;Turkey&#39;,
- &#39;TM&#39;: &#39;Turkmenistan&#39;,
- &#39;TC&#39;: &#39;Turks and Caicos Islands&#39;,
- &#39;TV&#39;: &#39;Tuvalu&#39;,
- &#39;UG&#39;: &#39;Uganda&#39;,
- &#39;UA&#39;: &#39;Ukraine&#39;,
- &#39;AE&#39;: &#39;United Arab Emirates&#39;,
- &#39;GB&#39;: &#39;United Kingdom&#39;,
- &#39;US&#39;: &#39;United States&#39;,
- &#39;UM&#39;: &#39;United States Minor Outlying Islands&#39;,
- &#39;UY&#39;: &#39;Uruguay&#39;,
- &#39;UZ&#39;: &#39;Uzbekistan&#39;,
- &#39;VU&#39;: &#39;Vanuatu&#39;,
- &#39;VE&#39;: &#39;Venezuela, Bolivarian Republic of&#39;,
- &#39;VN&#39;: &#39;Viet Nam&#39;,
- &#39;VG&#39;: &#39;Virgin Islands, British&#39;,
- &#39;VI&#39;: &#39;Virgin Islands, U.S.&#39;,
- &#39;WF&#39;: &#39;Wallis and Futuna&#39;,
- &#39;EH&#39;: &#39;Western Sahara&#39;,
- &#39;YE&#39;: &#39;Yemen&#39;,
- &#39;ZM&#39;: &#39;Zambia&#39;,
- &#39;ZW&#39;: &#39;Zimbabwe&#39;}</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Convert-JSON-into-a-Pandas-DataFrame">Convert JSON into a Pandas DataFrame<a class="anchor-link" href="#Convert-JSON-into-a-Pandas-DataFrame">&#182;</a></h3>
+<h3 id="url_upgs_cntry----Unreached-People-Groups-in-the-Country">url_upgs_cntry -- Unreached People Groups in the Country<a class="anchor-link" href="#url_upgs_cntry----Unreached-People-Groups-in-the-Country">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">url_upgs_cntry</span><span class="p">(</span><span class="s1">&#39;IN&#39;</span><span class="p">),</span>
+    <span class="n">f</span><span class="s1">&#39;https://joshuaproject.net/api/v2/people_groups?ROG3=IN&amp;LeastReached=Y&amp;api_key=</span><span class="si">{api_key}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="url_pg_cntry----People-Group-in-the-Country">url_pg_cntry -- People Group in the Country<a class="anchor-link" href="#url_pg_cntry----People-Group-in-the-Country">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">url_pg_cntry</span><span class="p">(</span><span class="n">cntry</span><span class="o">=</span><span class="s1">&#39;RS&#39;</span><span class="p">),</span>
+    <span class="n">f</span><span class="s1">&#39;https://joshuaproject.net/api/v2/people_groups?ROG3=RS&amp;api_key=</span><span class="si">{api_key}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="url_pg_cntries----All-countries-a-specific-people-group-lives-in">url_pg_cntries -- All countries a specific people group lives in<a class="anchor-link" href="#url_pg_cntries----All-countries-a-specific-people-group-lives-in">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>People group is to be encoded as <code>PeopleID3</code> -- People-Group-Across-Countries ID number.</p>
+
 </div>
 </div>
 </div>
@@ -1113,211 +205,63 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">resp_j</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url_pg_cntries</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">url_pgs_cntry</span><span class="p">)</span>
+<span class="n">url_pg_cntries</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Get all countries a specific `pgid` people group lives in&quot;&quot;&quot;</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>PeopleID3ROG3</th>
-      <th>ROG3</th>
-      <th>Ctry</th>
-      <th>CtryShort</th>
-      <th>CtryLiteracyRate</th>
-      <th>CtryLiteracySource</th>
-      <th>PeopleID3</th>
-      <th>ROP3</th>
-      <th>PeopNameInCountry</th>
-      <th>PeopNameAcrossCountries</th>
-      <th>...</th>
-      <th>MapCreditURL</th>
-      <th>MapCopyright</th>
-      <th>GSEC</th>
-      <th>JF</th>
-      <th>AudioRecordings</th>
-      <th>NTOnline</th>
-      <th>GospelRadio</th>
-      <th>PEID</th>
-      <th>Longitude</th>
-      <th>Latitude</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>10125RS</td>
-      <td>RS</td>
-      <td>Russia</td>
-      <td>Russia</td>
-      <td>100</td>
-      <td>Ethnologue 2018</td>
-      <td>10125</td>
-      <td>100011</td>
-      <td>Abaza</td>
-      <td>Abaza</td>
-      <td>...</td>
-      <td>None</td>
-      <td>N</td>
-      <td>1</td>
-      <td>N</td>
-      <td>N</td>
-      <td></td>
-      <td>N</td>
-      <td>48739.0</td>
-      <td>41.889520</td>
-      <td>44.221680</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>10130RS</td>
-      <td>RS</td>
-      <td>Russia</td>
-      <td>Russia</td>
-      <td>100</td>
-      <td>Ethnologue 2018</td>
-      <td>10130</td>
-      <td>100018</td>
-      <td>Abkhaz</td>
-      <td>Abkhaz</td>
-      <td>...</td>
-      <td>http://en.wikipedia.org/wiki/File:Caucasus_eth...</td>
-      <td>N</td>
-      <td></td>
-      <td>Y</td>
-      <td>N</td>
-      <td></td>
-      <td>N</td>
-      <td>NaN</td>
-      <td>39.966281</td>
-      <td>43.412621</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>10161RS</td>
-      <td>RS</td>
-      <td>Russia</td>
-      <td>Russia</td>
-      <td>100</td>
-      <td>Ethnologue 2018</td>
-      <td>10161</td>
-      <td>100079</td>
-      <td>Adyghe, West Circassian</td>
-      <td>Adyghe</td>
-      <td>...</td>
-      <td>None</td>
-      <td>N</td>
-      <td>3</td>
-      <td>Y</td>
-      <td>Y</td>
-      <td></td>
-      <td>N</td>
-      <td>24434.0</td>
-      <td>40.113917</td>
-      <td>44.594719</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>10184RS</td>
-      <td>RS</td>
-      <td>Russia</td>
-      <td>Russia</td>
-      <td>100</td>
-      <td>Ethnologue 2018</td>
-      <td>10184</td>
-      <td>100126</td>
-      <td>Aghul</td>
-      <td>Aghul</td>
-      <td>...</td>
-      <td>None</td>
-      <td>Y</td>
-      <td>1</td>
-      <td>N</td>
-      <td>Y</td>
-      <td></td>
-      <td>N</td>
-      <td>24403.0</td>
-      <td>47.554020</td>
-      <td>41.930850</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>10224RS</td>
-      <td>RS</td>
-      <td>Russia</td>
-      <td>Russia</td>
-      <td>100</td>
-      <td>Ethnologue 2018</td>
-      <td>10224</td>
-      <td>100187</td>
-      <td>Akhvakh</td>
-      <td>Akhvakh</td>
-      <td>...</td>
-      <td>None</td>
-      <td>N</td>
-      <td>0</td>
-      <td>N</td>
-      <td>N</td>
-      <td></td>
-      <td>N</td>
-      <td>24405.0</td>
-      <td>46.326160</td>
-      <td>42.384760</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 82 columns</p>
 </div>
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
-</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pgid</span><span class="o">=</span><span class="mi">18859</span>
+<span class="n">test_eq</span><span class="p">(</span><span class="n">url_pg_cntries</span><span class="p">(</span><span class="n">pgid</span><span class="o">=</span><span class="n">pgid</span><span class="p">),</span>
+    <span class="n">f</span><span class="s1">&#39;https://joshuaproject.net/api/v2/people_groups?&amp;PeopleID3=</span><span class="si">{pgid}</span><span class="s1">&amp;api_key=</span><span class="si">{api_key}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
 
+    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>All people groups in a specific country</p>
-<p><a href="http://joshuaproject.net/api/v2/people_groups?ROG3=YM&amp;api_key=aWye9lV20QtF">http://joshuaproject.net/api/v2/people_groups?ROG3=YM&amp;api_key=aWye9lV20QtF</a></p>
-<p>All unreached people groups in a specific country</p>
-<p><a href="https://joshuaproject.net/api/v2/people_groups?ROG3=YM&amp;LeastReached=Y&amp;api_key=aWye9lV20QtF">https://joshuaproject.net/api/v2/people_groups?ROG3=YM&amp;LeastReached=Y&amp;api_key=aWye9lV20QtF</a></p>
-<p>A people group in a specific country</p>
-<p><a href="http://joshuaproject.net/api/v2/people_groups?ROG3=AF&amp;PeopleID3=19409&amp;api_key=aWye9lV20QtF">http://joshuaproject.net/api/v2/people_groups?ROG3=AF&amp;PeopleID3=19409&amp;api_key=aWye9lV20QtF</a></p>
-<p>All countries a specific people group lives in</p>
-<p><a href="http://joshuaproject.net/api/v2/people_groups?PeopleID3=10294&amp;api_key=aWye9lV20QtF">http://joshuaproject.net/api/v2/people_groups?PeopleID3=10294&amp;api_key=aWye9lV20QtF</a></p>
-<p><strong>Country summary data</strong></p>
-<p><a href="http://joshuaproject.net/api/v2/countries?ROG3=AF&amp;api_key=aWye9lV20QtF">http://joshuaproject.net/api/v2/countries?ROG3=AF&amp;api_key=aWye9lV20QtF</a></p>
-<p><strong>Language summary info</strong></p>
-<p><a href="http://joshuaproject.net/api/v2/languages?ROL3=hau&amp;api_key=aWye9lV20QtF">http://joshuaproject.net/api/v2/languages?ROL3=hau&amp;api_key=aWye9lV20QtF</a></p>
-<p><strong>Unreached of the Day</strong> (basic data October 16th)</p>
-<p><a href="https://joshuaproject.net/api/v2/upgotd?api_key=aWye9lV20QtF&amp;ROL3Profile=eng&amp;LRofTheDayMonth=10&amp;LRofTheDayDay=16">https://joshuaproject.net/api/v2/upgotd?api_key=aWye9lV20QtF&amp;ROL3Profile=eng&amp;LRofTheDayMonth=10&amp;LRofTheDayDay=16</a></p>
+<h3 id="Country's-summary-data">Country's summary data<a class="anchor-link" href="#Country's-summary-data">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
 
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">country</span> <span class="o">=</span> <span class="s1">&#39;BD&#39;</span>
+<span class="n">test_eq</span><span class="p">(</span><span class="n">url_cntry</span><span class="p">(</span><span class="n">country</span><span class="p">),</span>
+    <span class="n">f</span><span class="s1">&#39;https://joshuaproject.net/api/v2/countries?ROG3=</span><span class="si">{country}</span><span class="s1">&amp;api_key=</span><span class="si">{api_key}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Querying">Querying<a class="anchor-link" href="#Querying">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Convert-JSON-into-a-Pandas-DataFrame">Convert JSON into a Pandas DataFrame<a class="anchor-link" href="#Convert-JSON-into-a-Pandas-DataFrame">&#182;</a></h2>
 </div>
 </div>
 </div>

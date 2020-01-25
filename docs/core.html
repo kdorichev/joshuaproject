@@ -35,35 +35,6 @@ summary: "Python library to access online data from the Joshua Project via APIv2
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url_path_query</span><span class="p">(</span><span class="s1">&#39;/api/v2/people_groups&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;https://joshuaproject.net/api/v2/people_groups?&amp;api_key=w3NOS49TW7fg&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
 
 <div class="output_wrapper">
 <div class="output">
@@ -72,7 +43,7 @@ summary: "Python library to access online data from the Joshua Project via APIv2
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="url_path_query" class="doc_header"><code>url_path_query</code><a href="https://github.com/kdorichev/joshuaproject/tree/master/joshuaproject/core.py#L14" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>url_path_query</code>(<strong><code>path</code></strong>:<code>str</code>, <strong><code>cntry</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>pgid</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>extra</code></strong>=<em><code>None</code></em>, <strong><code>month</code></strong>=<em><code>None</code></em>, <strong><code>day</code></strong>=<em><code>None</code></em>, <strong><code>api_key</code></strong>=<em><code>'w3NOS49TW7fg'</code></em>)</p>
+<h4 id="url_path_query" class="doc_header"><code>url_path_query</code><a href="https://github.com/kdorichev/joshuaproject/tree/master/joshuaproject/core.py#L15" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>url_path_query</code>(<strong><code>path</code></strong>:<code>str</code>, <strong><code>cntry</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>pgid</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>extra</code></strong>=<em><code>None</code></em>, <strong><code>month</code></strong>=<em><code>None</code></em>, <strong><code>day</code></strong>=<em><code>None</code></em>, <strong><code>api_key</code></strong>=<em><code>'your_api_key'</code></em>)</p>
 </blockquote>
 <p>Builds and returns a string url to query <code>path</code> for <code>cntry</code>
 with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>day</code>.</p>
@@ -85,6 +56,41 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="/joshuaproject/core#url_path_query"><code>url_path_query</code></a> is a generic low-level function. It requires specification of required <code>path</code> and if used without other specific arguments, returns over 17000 records.</p>
+<p><code>cntry</code> is a two-letter country code as was specified in FIPS 10-4 (US Federal Information Processing Standard), which is now absolete a bit differs from the international ISO 3166 standard. See details.</p>
+<p>The library provides a helper function to work around the current ambiguity.</p>
+<p><code>pgid</code> is a string with people group id.</p>
+<p><code>extra</code> is an <em>optional</em> argument in a form <code>field=value</code>, for example: <code>'LeastReached=Y'</code></p>
+<p><code>month</code> and <code>day</code> are <em>optional</em> arguments of type <code>int</code> used in <a href="/joshuaproject/core#url_upgotd"><code>url_upgotd</code></a> to specify the date for which to request the unreached people group. If either is omitted, the value of the current date is used. If <code>int</code> values are passed, these are coverted to proper <code>str</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">url_path_query</span><span class="p">(</span><span class="s1">&#39;/api/v2/people_groups&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;https://joshuaproject.net/api/v2/people_groups?&amp;api_key=your_api_key&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Unreached-People-Group-of-the-Day">Unreached People Group of the Day<a class="anchor-link" href="#Unreached-People-Group-of-the-Day">&#182;</a></h3>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 
 </div>
@@ -93,7 +99,32 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url_upgotd</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_eq</span><span class="p">(</span>
+    <span class="n">url_upgotd</span><span class="p">(</span><span class="n">month</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="s1">&#39;https://joshuaproject.net/api/v2/upgotd?&amp;LRofTheDayMonth=10&amp;LRofTheDayDay=1&amp;api_key=your_api_key&#39;</span><span class="p">)</span>
+
+<span class="n">m</span><span class="p">,</span><span class="n">d</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%-m&quot;</span><span class="p">),</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%-d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">test_eq</span><span class="p">(</span>
+    <span class="n">url_upgotd</span><span class="p">(),</span>
+    <span class="n">f</span><span class="s1">&#39;https://joshuaproject.net/api/v2/upgotd?&amp;LRofTheDayMonth=</span><span class="si">{m}</span><span class="s1">&amp;LRofTheDayDay=</span><span class="si">{d}</span><span class="s1">&amp;api_key=your_api_key&#39;</span><span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%-m&quot;</span><span class="p">)</span>
+<span class="n">test_eq</span><span class="p">(</span>
+    <span class="n">url_upgotd</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="s1">&#39;15&#39;</span><span class="p">),</span>
+    <span class="n">f</span><span class="s1">&#39;https://joshuaproject.net/api/v2/upgotd?&amp;LRofTheDayMonth=</span><span class="si">{m}</span><span class="s1">&amp;LRofTheDayDay=</span><span class="si">{15}</span><span class="s1">&amp;api_key=your_api_key&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url_upgotd</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="s1">&#39;12&#39;</span><span class="p">,</span><span class="n">month</span><span class="o">=</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%-m&quot;</span><span class="p">)),</span>
 </pre></div>
 
     </div>
@@ -108,7 +139,7 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;https://joshuaproject.net/api/v2/upgotd?&amp;LRofTheDayMonth=1&amp;LRofTheDayDay=24&amp;api_key=w3NOS49TW7fg&#39;</pre>
+<pre>(&#39;https://joshuaproject.net/api/v2/upgotd?&amp;LRofTheDayMonth=1&amp;LRofTheDayDay=12&amp;api_key=your_api_key&#39;,)</pre>
 </div>
 
 </div>
@@ -116,34 +147,14 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Unreached-People-Groups-in-the-Country">Unreached People Groups in the Country<a class="anchor-link" href="#Unreached-People-Groups-in-the-Country">&#182;</a></h3>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url_upgotd</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">month</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;https://joshuaproject.net/api/v2/upgotd?&amp;LRofTheDayMonth=2&amp;LRofTheDayDay=10&amp;api_key=w3NOS49TW7fg&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
@@ -166,7 +177,7 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;https://joshuaproject.net/api/v2/people_groups?ROG3=IN&amp;LeastReached=Y&amp;api_key=w3NOS49TW7fg&#39;</pre>
+<pre>&#39;https://joshuaproject.net/api/v2/people_groups?ROG3=IN&amp;LeastReached=Y&amp;api_key=your_api_key&#39;</pre>
 </div>
 
 </div>

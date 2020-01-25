@@ -7,10 +7,10 @@ index = {"url_path_query": "00_core.ipynb",
          "url_pgs_cntry.__doc__": "00_core.ipynb",
          "url_pg_cntry": "00_core.ipynb",
          "url_pg_cntry.__doc__": "00_core.ipynb",
-         "url_upgs_cntry": "00_core.ipynb",
-         "url_upgs_cntry.__doc__": "00_core.ipynb",
          "url_upgotd": "00_core.ipynb",
-         "url_upgotd.__doc__": "00_core.ipynb"}
+         "url_upgotd.__doc__": "00_core.ipynb",
+         "url_upgs_cntry": "00_core.ipynb",
+         "url_upgs_cntry.__doc__": "00_core.ipynb"}
 
 modules = ["core.py"]
 

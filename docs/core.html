@@ -46,7 +46,7 @@ summary: "Python library to access online data from the Joshua Project via APIv2
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h3 id="url_path_query" class="doc_header"><code>url_path_query</code><a href="https://github.com/kdorichev/joshuaproject/tree/master/joshuaproject/core.py#L19" class="source_link" style="float:right">[source]</a></h3><blockquote><p><code>url_path_query</code>(<strong><code>path</code></strong>:<code>str</code>, <strong><code>cntry</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>pgid</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>extra</code></strong>=<em><code>None</code></em>, <strong><code>month</code></strong>=<em><code>None</code></em>, <strong><code>day</code></strong>=<em><code>None</code></em>, <strong><code>api_key</code></strong>=<em><code>'your_api_key'</code></em>)</p>
+<h3 id="url_path_query" class="doc_header"><code>url_path_query</code><a href="https://github.com/kdorichev/joshuaproject/tree/master/joshuaproject/core.py#L19" class="source_link" style="float:right">[source]</a></h3><blockquote><p><code>url_path_query</code>(<strong><code>path</code></strong>:<code>str</code>, <strong><code>cntry</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>pgid</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>lang</code></strong>=<em><code>None</code></em>, <strong><code>extra</code></strong>=<em><code>None</code></em>, <strong><code>month</code></strong>=<em><code>None</code></em>, <strong><code>day</code></strong>=<em><code>None</code></em>, <strong><code>api_key</code></strong>=<em><code>'your_api_key'</code></em>)</p>
 </blockquote>
 <p>Builds and returns a string url to query <code>path</code> for <code>cntry</code>
 with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>day</code>.</p>
@@ -208,7 +208,7 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url_pg_cntry</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">url_pgs_cntry</span><span class="p">,</span><span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url_pg_cntry</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">url_pgs_cntry</span><span class="p">)</span>
 <span class="n">url_pg_cntry</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Get a specific people group in a specific `cntry` country.&quot;&quot;&quot;</span>
 </pre></div>
 
@@ -301,6 +301,48 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">country</span> <span class="o">=</span> <span class="s1">&#39;BD&#39;</span>
 <span class="n">test_eq</span><span class="p">(</span><span class="n">url_cntry</span><span class="p">(</span><span class="n">country</span><span class="p">),</span>
     <span class="n">f</span><span class="s1">&#39;https://joshuaproject.net/api/v2/countries?ROG3=</span><span class="si">{country}</span><span class="s1">&amp;api_key=</span><span class="si">{api_key}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="url_lang----Language-summary-data">url_lang -- Language summary data<a class="anchor-link" href="#url_lang----Language-summary-data">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Language argument is expected encoded as ROL3.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url_lang</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">url_path_query</span><span class="p">,</span><span class="s1">&#39;/api/v2/languages&#39;</span><span class="p">)</span>
+<span class="n">url_lang</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Get a `lang` language summary data.&quot;&quot;&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lang</span><span class="o">=</span><span class="s1">&#39;hau&#39;</span>
+<span class="n">test_eq</span><span class="p">(</span><span class="n">url_lang</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="n">lang</span><span class="p">),</span>
+    <span class="n">f</span><span class="s1">&#39;https://joshuaproject.net/api/v2/languages?&amp;ROL3=</span><span class="si">{lang}</span><span class="s1">&amp;api_key=your_api_key&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>

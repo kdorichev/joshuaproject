@@ -13,15 +13,16 @@ from datetime import date
 from fastcore.test import *
 
 # Cell
-api_key='your_api_key' #'w3NOS49TW7fg'
+api_key='your_api_key' # 'w3NOS49TW7fg'
 
 # Cell
-def url_path_query(path:str,cntry:str=None,pgid:str=None,extra=None,month=None,day=None,api_key='your_api_key')->str:
+def url_path_query(path:str,cntry:str=None,pgid:str=None,lang=None,extra=None,month=None,day=None,api_key=api_key)->str:
     """Builds and returns a string url to query `path` for `cntry`
     with optional `pgid`,`extra`,`month` and `day`."""
     query = ''
     if cntry is not None: query = query+'ROG3='+str(cntry)
     if pgid  is not None: query = query+'&PeopleID3='+str(pgid)
+    if lang  is not None: query = query+'&ROL3='+str(lang)
     if extra is not None: query = query+'&'+str(extra)
     if 'upgotd' in path:
         today = date.today()
@@ -47,7 +48,7 @@ url_upgs_cntry = partial(url_pgs_cntry,extra='LeastReached=Y')
 url_upgs_cntry.__doc__ = """Get all unreached people groups in a specific `cntry` country."""
 
 # Cell
-url_pg_cntry = partial(url_pgs_cntry,api_key=api_key)
+url_pg_cntry = partial(url_pgs_cntry)
 url_pg_cntry.__doc__ = """Get a specific people group in a specific `cntry` country."""
 
 # Cell

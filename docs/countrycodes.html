@@ -135,6 +135,90 @@ summary: "Class `CountryCodes()` to search and convert between `iso` and `fips` 
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cc</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cname</th>
+      <th>FIPS</th>
+      <th>ISO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Afghanistan</td>
+      <td>AF</td>
+      <td>AF</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Aland Islands</td>
+      <td>NaN</td>
+      <td>AX</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Albania</td>
+      <td>AL</td>
+      <td>AL</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Algeria</td>
+      <td>AG</td>
+      <td>DZ</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>American Samoa</td>
+      <td>AQ</td>
+      <td>AS</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
 
 <div class="output_wrapper">
 <div class="output">
@@ -147,6 +231,90 @@ summary: "Class `CountryCodes()` to search and convert between `iso` and `fips` 
 </blockquote>
 <p>Returns last <code>rows</code>.</p>
 
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cc</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cname</th>
+      <th>FIPS</th>
+      <th>ISO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>244</td>
+      <td>Wallis and Futuna</td>
+      <td>WF</td>
+      <td>WF</td>
+    </tr>
+    <tr>
+      <td>245</td>
+      <td>Western Sahara</td>
+      <td>WI</td>
+      <td>EH</td>
+    </tr>
+    <tr>
+      <td>246</td>
+      <td>Yemen</td>
+      <td>YM</td>
+      <td>YE</td>
+    </tr>
+    <tr>
+      <td>247</td>
+      <td>Zambia</td>
+      <td>ZA</td>
+      <td>ZM</td>
+    </tr>
+    <tr>
+      <td>248</td>
+      <td>Zimbabwe</td>
+      <td>ZI</td>
+      <td>ZW</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
 </div>
@@ -282,27 +450,16 @@ Name: 101, dtype: object</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cc</span><span class="o">.</span><span class="n">like</span><span class="p">(</span><span class="s1">&#39;United&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">cc</span><span class="o">.</span><span class="n">like</span><span class="p">(</span><span class="s1">&#39;Russia&#39;</span><span class="p">),[{</span><span class="s1">&#39;cname&#39;</span><span class="p">:</span> <span class="s1">&#39;Russian Federation&#39;</span><span class="p">,</span> <span class="s1">&#39;FIPS&#39;</span><span class="p">:</span> <span class="s1">&#39;RS&#39;</span><span class="p">,</span> <span class="s1">&#39;ISO&#39;</span><span class="p">:</span> <span class="s1">&#39;RU&#39;</span><span class="p">}])</span>
+
+<span class="n">test_eq</span><span class="p">(</span><span class="n">cc</span><span class="o">.</span><span class="n">like</span><span class="p">(</span><span class="s1">&#39;United&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+        <span class="p">[{</span><span class="s1">&#39;cname&#39;</span><span class="p">:</span> <span class="s1">&#39;Tanzania, United Republic of&#39;</span><span class="p">,</span> <span class="s1">&#39;FIPS&#39;</span><span class="p">:</span> <span class="s1">&#39;TZ&#39;</span><span class="p">,</span> <span class="s1">&#39;ISO&#39;</span><span class="p">:</span> <span class="s1">&#39;TZ&#39;</span><span class="p">},</span>
+         <span class="p">{</span><span class="s1">&#39;cname&#39;</span><span class="p">:</span> <span class="s1">&#39;United Arab Emirates&#39;</span><span class="p">,</span> <span class="s1">&#39;FIPS&#39;</span><span class="p">:</span> <span class="s1">&#39;AE&#39;</span><span class="p">,</span> <span class="s1">&#39;ISO&#39;</span><span class="p">:</span> <span class="s1">&#39;AE&#39;</span><span class="p">}])</span>
+
+<span class="n">test_eq</span><span class="p">(</span><span class="n">cc</span><span class="o">.</span><span class="n">like</span><span class="p">(</span><span class="s1">&#39;Non-existing&#39;</span><span class="p">),[])</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[{&#39;cname&#39;: &#39;Tanzania, United Republic of&#39;, &#39;FIPS&#39;: &#39;TZ&#39;, &#39;ISO&#39;: &#39;TZ&#39;},
- {&#39;cname&#39;: &#39;United Arab Emirates&#39;, &#39;FIPS&#39;: &#39;AE&#39;, &#39;ISO&#39;: &#39;AE&#39;}]</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 

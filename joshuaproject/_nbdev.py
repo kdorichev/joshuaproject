@@ -15,9 +15,11 @@ index = {"api_key": "00_core.ipynb",
          "url_pg_cntries": "00_core.ipynb",
          "url_pg_cntries.__doc__": "00_core.ipynb",
          "url_cntry": "00_core.ipynb",
-         "url_cntry.__doc__": "00_core.ipynb"}
+         "url_cntry.__doc__": "00_core.ipynb",
+         "CountryCodes": "01_countrycodes.ipynb"}
 
-modules = ["core.py"]
+modules = ["core.py",
+           "countrycodes.py"]
 
 doc_url = "https://kdorichev.github.io/joshuaproject/"
 

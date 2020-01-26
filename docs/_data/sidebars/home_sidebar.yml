@@ -12,6 +12,9 @@ entries:
     - output: web,pdf
       title: Core Functions
       url: /core
+    - output: web,pdf
+      title: Country Codes
+      url: /countrycodes
     output: web
     title: joshuaproject
   output: web

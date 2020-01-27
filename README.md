@@ -27,7 +27,7 @@ In the meantime, as of Jan 2020 Joshua Project has no plans to switch onto ISO c
 
 Sadly, FIPS in **60%** cases differs from the ISO.
 
-```python
+```
 cc = CountryCodes()
 diff = cc.data[cc.data.FIPS != cc.data.ISO]
 len(diff)/len(cc)
@@ -40,7 +40,7 @@ len(diff)/len(cc)
 
 
 
-```python
+```
 diff.head()
 ```
 
@@ -115,7 +115,7 @@ This library provides a [`CountryCodes()`](https://kdorichev.github.io/joshuapro
 
 Missing FIPS values:
 
-```python
+```
 cc.data[cc.data.FIPS.isna()]
 ```
 
@@ -170,7 +170,7 @@ cc.data[cc.data.FIPS.isna()]
 
 
 
-```python
+```
 cc.like('French')
 ```
 
@@ -189,7 +189,7 @@ cc.like('French')
 
 Build an URL to query all people groups in India:
 
-```python
+```
 url_pgs_cntry('IN',api_key=api_key)
 ```
 

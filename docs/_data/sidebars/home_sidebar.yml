@@ -10,11 +10,14 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: Core Functions
-      url: /core
+      title: URL Functions
+      url: /url
     - output: web,pdf
       title: Country Codes
       url: /countrycodes
+    - output: web,pdf
+      title: Title
+      url: /Untitled
     output: web
     title: joshuaproject
   output: web

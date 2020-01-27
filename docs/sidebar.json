@@ -1,7 +1,8 @@
 {
   "joshuaproject": {
     "Overview": "/",
-    "Core Functions": "/core",
-    "Country Codes": "/countrycodes"
+    "URL Functions": "/url",
+    "Country Codes": "/countrycodes",
+    "Title": "/Untitled"
   }
 }

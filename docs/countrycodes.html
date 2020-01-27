@@ -22,6 +22,26 @@ summary: "Class `CountryCodes()` to search and convert between `iso` and `fips` 
 <div class="cell border-box-sizing code_cell rendered">
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Solution-to-a-problem">Solution to a problem<a class="anchor-link" href="#Solution-to-a-problem">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Joshua Project uses <strong>FIPS</strong> codes (<em>US Federal Information Processing Standard)</em> for countries.</p>
+<blockquote><p><a href="https: //www.wikiwand.com/en/FIPS_10-4">FIPS 10-4</a> (April 1995) -- Countries, Dependencies, Areas of Special Sovereignty, and TheirPrincipal Administrative Divisions.</p>
+</blockquote>
+<p>However, FIPS 10-4 was <a href="https://www.nist.gov/system/files/documents/itl/FIPSCodesReplacementChart2015.pdf">withdrawn by NIST</a>  on September 2, 2008 in favor of the international <a href="https://www.iso.org/iso-3166-country-codes.html"><strong>ISO 3166</strong> standard</a>.</p>
+<p>In the meantime, as of Jan 2020 Joshua Project has no plans to switch onto ISO codes, I was notified. <em>sigh</em></p>
+<p>Sadly, FIPS in <strong>60%</strong> cases differs from the ISO.</p>
+<p>This library provides a <code>CountryCodes()</code> class to workaround this discrepancy.</p>
+<p>Wherever the library uses the term <code>iso code</code>, <strong>ISO 3166 alpha 2</strong> country code is implied as defined here: <a href="https://www.iso.org/obp/ui/">https://www.iso.org/obp/ui/</a></p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 
 </div>
@@ -58,27 +78,6 @@ summary: "Class `CountryCodes()` to search and convert between `iso` and `fips` 
 </pre></div>
 
     </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="CountryCodes.__len__" class="doc_header"><code>CountryCodes.__len__</code><a href="https://github.com/kdorichev/joshuaproject/tree/master/joshuaproject/countrycodes.py#L15" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>CountryCodes.__len__</code>()</p>
-</blockquote>
-<p>Returns lenth of <code>data</code>.</p>
-
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -324,6 +323,16 @@ summary: "Class `CountryCodes()` to search and convert between `iso` and `fips` 
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cc</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">13</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -331,11 +340,52 @@ summary: "Class `CountryCodes()` to search and convert between `iso` and `fips` 
 <div class="output_area">
 
 
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="CountryCodes.__getitem__" class="doc_header"><code>CountryCodes.__getitem__</code><a href="https://github.com/kdorichev/joshuaproject/tree/master/joshuaproject/countrycodes.py#L31" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>CountryCodes.__getitem__</code>(<strong><code>idx</code></strong>)</p>
-</blockquote>
-<p>Return <code>idx</code>th element of data.</p>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cname</th>
+      <th>FIPS</th>
+      <th>ISO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>10</td>
+      <td>Argentina</td>
+      <td>AR</td>
+      <td>AR</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Armenia</td>
+      <td>AM</td>
+      <td>AM</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Aruba</td>
+      <td>AA</td>
+      <td>AW</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
 </div>

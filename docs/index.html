@@ -59,28 +59,276 @@ For details, see <a href="https://joshuaproject.net/api/v2/documentation"><stron
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>Get your <a href="https://joshuaproject.net/api/v2">API key</a> and set it in a variable or pass to functions.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Country-Codes">Country Codes<a class="anchor-link" href="#Country-Codes">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Joshua Project uses <strong>FIPS</strong> codes (<em>US Federal Information Processing Standard</em>) for countries.</p>
+<blockquote><p><a href="https: //www.wikiwand.com/en/FIPS_10-4">FIPS 10-4</a> (April 1995) -- Countries, Dependencies, Areas of Special Sovereignty, and TheirPrincipal Administrative Divisions.</p>
+</blockquote>
+<p>However, FIPS 10-4 was <a href="https://www.nist.gov/system/files/documents/itl/FIPSCodesReplacementChart2015.pdf">withdrawn by NIST</a>  on September 2, 2008 in favor of the international <a href="https://www.iso.org/iso-3166-country-codes.html"><strong>ISO 3166</strong> standard</a>.</p>
+<p>In the meantime, as of Jan 2020 Joshua Project has no plans to switch onto ISO codes, I was notified. <em>sigh</em></p>
+<p>Sadly, FIPS in <strong>60%</strong> cases differs from the ISO.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cc</span> <span class="o">=</span> <span class="n">CountryCodes</span><span class="p">()</span>
+<span class="n">diff</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">cc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">FIPS</span> <span class="o">!=</span> <span class="n">cc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">ISO</span><span class="p">]</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">cc</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.6024096385542169</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">diff</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cname</th>
+      <th>FIPS</th>
+      <th>ISO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Aland Islands</td>
+      <td>NaN</td>
+      <td>AX</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Algeria</td>
+      <td>AG</td>
+      <td>DZ</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>American Samoa</td>
+      <td>AQ</td>
+      <td>AS</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Andorra</td>
+      <td>AN</td>
+      <td>AD</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Anguilla</td>
+      <td>AV</td>
+      <td>AI</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Solution">Solution<a class="anchor-link" href="#Solution">&#182;</a></h4><p>This library provides a <code>CountryCodes()</code> class to workaround this discrepancy.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Missing-FIPS-codes">Missing FIPS codes<a class="anchor-link" href="#Missing-FIPS-codes">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Missing FIPS values:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cc</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">cc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">FIPS</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cname</th>
+      <th>FIPS</th>
+      <th>ISO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Aland Islands</td>
+      <td>NaN</td>
+      <td>AX</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>Bonaire, Sint Eustatius and Saba</td>
+      <td>NaN</td>
+      <td>BQ</td>
+    </tr>
+    <tr>
+      <td>236</td>
+      <td>United States Minor Outlying Islands</td>
+      <td>NaN</td>
+      <td>UM</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cc</span><span class="o">.</span><span class="n">like</span><span class="p">(</span><span class="s1">&#39;French&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[{&#39;cname&#39;: &#39;French Guiana&#39;, &#39;FIPS&#39;: &#39;FG&#39;, &#39;ISO&#39;: &#39;GF&#39;},
+ {&#39;cname&#39;: &#39;French Polynesia&#39;, &#39;FIPS&#39;: &#39;FP&#39;, &#39;ISO&#39;: &#39;PF&#39;},
+ {&#39;cname&#39;: &#39;French Southern Territories&#39;, &#39;FIPS&#39;: &#39;FS&#39;, &#39;ISO&#39;: &#39;TF&#39;}]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="URL-Constricting-finctions">URL Constricting finctions<a class="anchor-link" href="#URL-Constricting-finctions">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="1.-Get-your-API-key">1. Get your API key<a class="anchor-link" href="#1.-Get-your-API-key">&#182;</a></h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>From <a href="https://joshuaproject.net/api/v2">here</a> and set it in a variable or pass to functions:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="2.-Get-all-people-groups-in-a-specific-country.">2. Get all people groups in a specific country.<a class="anchor-link" href="#2.-Get-all-people-groups-in-a-specific-country.">&#182;</a></h4><p>Countries are currently encoded as two-letter codes according to <em>US Federal Information Processing Standard (FIPS)</em>, which is absolete a bit differs from the international <strong>ISO 3166</strong> standard. See <a href="https://www.geodatasource.com/resources/tutorials/international-country-code-fips-versus-iso-3166/">details</a>.</p>
-<p>The library provides a helper function to work around the current ambiguity.</p>
-
+<h4 id="2.-Get-all-people-groups-in-a-specific-country.">2. Get all people groups in a specific country.<a class="anchor-link" href="#2.-Get-all-people-groups-in-a-specific-country.">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -100,6 +348,22 @@ For details, see <a href="https://joshuaproject.net/api/v2/documentation"><stron
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;https://joshuaproject.net/api/v2/people_groups?ROG3=IN&amp;api_key=your_api_key&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -126,7 +390,7 @@ For details, see <a href="https://joshuaproject.net/api/v2/documentation"><stron
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Tests are incorporated into the Jupyter Notebooks and are also a neat way to learn the function's expected behavior, since in case of incorrect behavior <code>test_*</code> functions will return an <strong>AssertionError</strong>.</p>
-<p>Tests can also be launched from the console with ...</p>
+<p>Tests can also be launched from the console with <code>nbdev_test_nbs</code>.</p>
 
 </div>
 </div>

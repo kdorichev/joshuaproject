@@ -37,7 +37,7 @@ def url_path_query(path:str,cntry:str=None,pgid:str=None,lang=None,extra=None,mo
 
 # Cell
 url_upgotd = partial(url_path_query,'/api/v2/upgotd')
-url_upgotd.__doc__ = """Get data for the UPG of the day."""
+url_upgotd.__doc__ = """Get data for the Unreached People Group of the Day."""
 
 # Cell
 url_pgs_cntry = partial(url_path_query,'/api/v2/people_groups')

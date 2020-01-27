@@ -107,9 +107,7 @@ diff.head()
 
 
 
-#### Solution
-
-This library provides a [`CountryCodes()`](https://kdorichev.github.io/joshuaproject/countrycodes/) class to workaround this discrepancy.
+**Solution:** The library provides a [`CountryCodes()`](https://kdorichev.github.io/joshuaproject/countrycodes/) class to workaround this discrepancy.
 
 #### Missing FIPS codes
 
@@ -183,9 +181,13 @@ cc.like('French')
 
 
 
-### URL Constricting finctions
+For more details, see the [Country Codes page](https://kdorichev.github.io/joshuaproject/countrycodes/).
 
-#### 2. Get all people groups in a specific country. 
+### URL Constructing Functions
+
+There are a few functions to easily construct URLs to query then for the info required.
+
+#### Get all people groups in a specific country
 
 Build an URL to query all people groups in India:
 
@@ -199,6 +201,8 @@ url_pgs_cntry('IN',api_key=api_key)
     'https://joshuaproject.net/api/v2/people_groups?ROG3=IN&api_key=your_api_key'
 
 
+
+For more details, see the [URL Functions page](https://kdorichev.github.io/joshuaproject/url/).
 
 ## Development
 

@@ -79,7 +79,7 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 <p>The library provides a helper function to work around the current ambiguity.</p>
 <p><code>pgid</code> is a string with people group id.</p>
 <p><code>extra</code> is an <em>optional</em> argument in a form <code>field=value</code>, for example: <code>'LeastReached=Y'</code></p>
-<p><code>month</code> and <code>day</code> are <em>optional</em> arguments of type <code>int</code> used in <a href="/joshuaproject/url#url_upgotd"><code>url_upgotd</code></a> to specify the date for which to request the unreached people group. If either is omitted, the value of the current date is used. If <code>int</code> values are passed, these are coverted to proper <code>str</code>.</p>
+<p><code>month</code> and <code>day</code> are <em>optional</em> arguments of type <code>int</code> or <code>str</code> used in <a href="/joshuaproject/url#url_upgotd"><code>url_upgotd</code></a> to specify the date for which to request the unreached people group. If either is omitted, the value of the current date is used. If <code>int</code> values are passed, these are coverted to proper <code>str</code>.</p>
 
 </div>
 </div>
@@ -98,18 +98,14 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="/joshuaproject/url#url_path_query"><code>url_path_query</code></a> is a generic function. More specific functions are described below.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url_upgotd</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">url_path_query</span><span class="p">,</span><span class="s1">&#39;/api/v2/upgotd&#39;</span><span class="p">)</span>
-<span class="n">url_upgotd</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Get data for the Unreached People Group of the Day.&quot;&quot;&quot;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
@@ -138,10 +134,19 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="p">,</span><span class="n">d</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%-m&quot;</span><span class="p">),</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%-d</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">test_eq</span><span class="p">(</span>
-    <span class="n">url_upgotd</span><span class="p">(),</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Today</span>
+<span class="n">test_eq</span><span class="p">(</span> <span class="n">url_upgotd</span><span class="p">(),</span>
     <span class="n">f</span><span class="s1">&#39;https://joshuaproject.net/api/v2/upgotd?&amp;LRofTheDayMonth=</span><span class="si">{m}</span><span class="s1">&amp;LRofTheDayDay=</span><span class="si">{d}</span><span class="s1">&amp;api_key=</span><span class="si">{api_key}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Any `month` and `day`</span>
+<span class="n">test_eq</span><span class="p">(</span> <span class="n">url_upgotd</span><span class="p">(</span><span class="n">month</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">f</span><span class="s1">&#39;https://joshuaproject.net/api/v2/upgotd?&amp;LRofTheDayMonth=10&amp;LRofTheDayDay=1&amp;api_key=</span><span class="si">{api_key}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%-m&quot;</span><span class="p">)</span>
+
+<span class="c1"># Current month, specific `day`</span>
+<span class="n">test_eq</span><span class="p">(</span> <span class="n">url_upgotd</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="s1">&#39;15&#39;</span><span class="p">),</span>
+    <span class="n">f</span><span class="s1">&#39;https://joshuaproject.net/api/v2/upgotd?&amp;LRofTheDayMonth=</span><span class="si">{m}</span><span class="s1">&amp;LRofTheDayDay=</span><span class="si">{15}</span><span class="s1">&amp;api_key=</span><span class="si">{api_key}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -318,17 +323,6 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url_cntry</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">url_path_query</span><span class="p">,</span><span class="s1">&#39;/api/v2/countries&#39;</span><span class="p">)</span>
-<span class="n">url_cntry</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Get a country summary data.&quot;&quot;&quot;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">

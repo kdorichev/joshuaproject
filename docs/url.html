@@ -150,17 +150,6 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url_pgs_cntry</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">url_path_query</span><span class="p">,</span><span class="s1">&#39;/api/v2/people_groups&#39;</span><span class="p">)</span>
-<span class="n">url_pgs_cntry</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Get all people groups in a specific `cntry` country.&quot;&quot;&quot;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
@@ -207,17 +196,6 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url_upgs_cntry</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">url_pgs_cntry</span><span class="p">,</span><span class="n">extra</span><span class="o">=</span><span class="s1">&#39;LeastReached=Y&#39;</span><span class="p">)</span>
-<span class="n">url_upgs_cntry</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Get all unreached people groups in a specific `cntry` country.&quot;&quot;&quot;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
@@ -256,17 +234,6 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url_pg_cntry</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">url_pgs_cntry</span><span class="p">)</span>
-<span class="n">url_pg_cntry</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Get a specific people group in a specific `cntry` country.&quot;&quot;&quot;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
@@ -305,17 +272,6 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url_pg_cntries</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">url_pgs_cntry</span><span class="p">)</span>
-<span class="n">url_pg_cntries</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Get all countries a specific `pgid` people group lives in&quot;&quot;&quot;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
@@ -412,17 +368,6 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url_lang</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">url_path_query</span><span class="p">,</span><span class="s1">&#39;/api/v2/languages&#39;</span><span class="p">)</span>
-<span class="n">url_lang</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Get summary data for `lang` language.&quot;&quot;&quot;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
@@ -448,7 +393,8 @@ with optional <code>pgid</code>,<code>extra</code>,<code>month</code> and <code>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Language argument is expected encoded as ROL3.</p>
+<p>Language argument is a three letter code: <a href="https://www.ethnologue.com/codes">https://www.ethnologue.com/codes</a>.</p>
+<p><a href="https://www.ethnologue.com/codes/download-code-tables">https://www.ethnologue.com/codes/download-code-tables</a></p>
 
 </div>
 </div>

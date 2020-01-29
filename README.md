@@ -1,5 +1,5 @@
 ![](https://img.shields.io/github/license/kdorichev/joshuaproject?color=blue)
-![](https://github.com/kdorichev/joshuaproject/workflows/CI/badge.svg)
+![https://github.com/kdorichev/joshuaproject/actions?query=workflow%3ACI](https://github.com/kdorichev/joshuaproject/workflows/CI/badge.svg)
 
 
 # Joshua Project Python Library

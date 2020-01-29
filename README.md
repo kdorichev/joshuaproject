@@ -1,9 +1,11 @@
+
+![](https://github.com/kdorichev/joshuaproject/workflows/CI/badge.svg)
+
+![](https://img.shields.io/github/license/kdorichev/joshuaproject?color=blue)
+
+
 # Joshua Project Python Library
 > This is a Python library to help one use APIv2 to fetch the data from the database JoshuaProject.net web site.
-
-
-![](https:/github.com/kdorichev/joshuaproject/workflows/CI/badge.svg)
-
 
 
 ![](logo-800x300.png)

@@ -57,7 +57,7 @@ url_pg_cntries.__doc__ = """Get all countries a specific `pgid` people group liv
 
 # Cell
 url_cntry = partial(url_path_query,'/api/v2/countries')
-url_cntry.__doc__ = """Get a country summary data."""
+url_cntry.__doc__ = """Get summary data for `cntry`."""
 
 # Cell
 url_lang = partial(url_path_query,'/api/v2/languages')

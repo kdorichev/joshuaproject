@@ -1,8 +1,9 @@
-![](https://img.shields.io/github/license/kdorichev/joshuaproject?color=blue)
-![](https://github.com/kdorichev/joshuaproject/workflows/CI/badge.svg)
-
 # Joshua Project Python Library
 > This is a Python library to help one use APIv2 to fetch the data from the database JoshuaProject.net web site.
+
+
+![](https:/github.com/kdorichev/joshuaproject/workflows/CI/badge.svg)
+
 
 
 ![](logo-800x300.png)
@@ -30,7 +31,7 @@ In the meantime, as of Jan 2020 Joshua Project has no plans to switch onto ISO c
 
 Sadly, FIPS in **60%** cases differs from the ISO.
 
-```
+```python
 cc = CountryCodes()
 diff = cc.data[cc.data.FIPS != cc.data.ISO]
 len(diff)/len(cc)
@@ -43,7 +44,7 @@ len(diff)/len(cc)
 
 
 
-```
+```python
 diff.head()
 ```
 
@@ -116,7 +117,7 @@ diff.head()
 
 Missing FIPS values:
 
-```
+```python
 cc.data[cc.data.FIPS.isna()]
 ```
 
@@ -171,7 +172,7 @@ cc.data[cc.data.FIPS.isna()]
 
 
 
-```
+```python
 cc.like('French')
 ```
 
@@ -194,7 +195,7 @@ There are a few functions to easily construct URLs to query then for the info re
 
 Build an URL to query all people groups in India:
 
-```
+```python
 url_pgs_cntry('IN',api_key=api_key)
 ```
 

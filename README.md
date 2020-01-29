@@ -1,3 +1,4 @@
+![](https://img.shields.io/github/license/kdorichev/joshuaproject)
 ![](https://github.com/kdorichev/joshuaproject/workflows/CI/badge.svg)
 
 # Joshua Project Python Library

@@ -87,7 +87,7 @@ margin-top: -40px
 
 .output_html a{
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-    margin: 25px 0px;
+    margin: 25px 0;
     display: block;
     padding: 9.5px;
     font-size: 13px;
@@ -134,7 +134,7 @@ margin-top: -40px
             }
 
 .post-content img {
-    margin: 12px 0px 3px 0px;
+    margin: 12px 0 3px 0;
     width: auto;
     height: auto;
     max-width: 100%;
@@ -142,7 +142,7 @@ margin-top: -40px
 }
 
 .post-content ol li, .post-content ul li {
-    margin: 10px 0px;
+    margin: 10px 0;
 }
 
 .pageSummary {
@@ -308,7 +308,7 @@ div#toc ul {
 
 /* when using relative fonts like 0.9em or 90%, remember to then set the nested items to 1em or 100%, otherwise each level will get smaller and smaller and less readable */
 div#toc ul li {
-    margin: 8px 0px 8px 22px;
+    margin: 8px 0 8px 22px;
     font-size: 100%;
     list-style-type: none;
 }
@@ -316,8 +316,8 @@ div#toc ul li {
 div#toc ul li ul {
     font-size: 100%;
     padding-left:30px;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 0;
+    padding-bottom: 0;
     list-style-type: none;
 }
 
@@ -385,7 +385,7 @@ a.accordion-toggle, a.accordion-collapsed {
 .nav {
     /* padding: 4px;*/
     padding:0px;
-    margin: 0px;
+    margin: 0;
 }
 
 .nav > li {
@@ -637,7 +637,7 @@ a[data-toggle] {
 .summary {
     font-size:120%;
     color: #808080;
-    margin:20px 0px 20px 0px;
+    margin:20px 0 20px 0;
     border-left: 5px solid #ED1951;
     padding-left: 10px;
 
@@ -666,7 +666,7 @@ li img {clear:both; }
 
 div#toc ul li ul li {
     list-style-type: none;
-    margin: 5px 0px 0px 0px;
+    margin: 5px 0 0 0;
 }
 
 .tab-content {
@@ -706,7 +706,7 @@ div.tags {padding: 10px 5px;}
 
 hr {
     background: #999;
-    margin: 30px 0px;
+    margin: 30px 0;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -745,7 +745,7 @@ a[data-toggle="tooltip"] {
 ol.series li {
     list-style-type: decimal;
     margin-left: 40px;
-    padding-left: 0px;
+    padding-left: 0;
 }
 
 .siteTagline {
@@ -755,7 +755,7 @@ ol.series li {
     font-family: monospace;
     text-align: center;
     line-height: 10px;
-    margin: 20px 0px;
+    margin: 20px 0;
     display: block;
 }
 
@@ -821,20 +821,20 @@ pre, table code {
 }
 
 pre {
-    margin: 25px 0px;
+    margin: 25px 0;
 }
 
 #json-box-container pre {
-    margin: 0px;
+    margin: 0;
 }
 
 .video-js {
-    margin: 30px 0px;
+    margin: 30px 0;
 }
 
 video {
     display: block;
-    margin: 30px 0px;
+    margin: 30px 0;
     border: 1px solid #c0c0c0;
 }
 
@@ -853,7 +853,7 @@ dd {margin-left:20px;}
 
 .note code, .alert code, .warning code, div#toc code, h2 code, h3 code, h4 code {
     color: inherit;
-    padding: 0px;
+    padding: 0;
 }
 
 .alert {
@@ -890,7 +890,7 @@ span.soft {
     background-color: #f0f0f0;
     font-family: courier;
     font-size: 110%;
-    margin: 20px 0px;
+    margin: 20px 0;
     color: #444;
 }
 
@@ -902,7 +902,7 @@ span.soft {
 .formBoundary {
     border: 1px solid gray;
     padding: 15px;
-    margin: 15px 0px;
+    margin: 15px 0;
     background-color: whitesmoke;
 }
 
@@ -943,7 +943,7 @@ span.soft {
 
 
 .post-content img {
-    margin: 12px 0px 3px 0px;
+    margin: 12px 0 3px 0;
     width: auto;
     height: auto;
     max-width: 100%;
@@ -956,7 +956,7 @@ span.soft {
 
 
 .post-content img {
-    margin: 12px 0px 3px 0px;
+    margin: 12px 0 3px 0;
     width: auto;
     height: auto;
     max-width: 100%;
@@ -965,7 +965,7 @@ span.soft {
 
 .videoThumbs img {
     float: left;
-    margin:15px 15px 15px 0px;
+    margin:15px 15px 15px 0;
     border: 1px solid #dedede;
 }
 
@@ -1036,7 +1036,7 @@ div.results {
 }
 
 .post-list p {
-    margin: 10px 0px;
+    margin: 10px 0;
 }
 
 time {
@@ -1044,7 +1044,7 @@ time {
 }
 
 p.post-meta time {
-    margin-right: 0px;
+    margin-right: 0;
 }
 
 span.label.label-default {
@@ -1176,7 +1176,7 @@ div.box.box1 {
 
 #userMap .complexArrow {
     font-size: 22px;
-    margin: 0px 10px;
+    margin: 0 10px;
 }
 
 
@@ -1211,8 +1211,8 @@ div.box.box1 {
 }
 
 h4.panel-title {
-    padding-top: 0px;
-    margin-top: 0px;
+    padding-top: 0;
+    margin-top: 0;
 }
 
 /*set navbar breakpoint so that it converts to hamburger earlier */
@@ -1257,13 +1257,13 @@ h4.panel-title {
         padding-bottom: 3;
         margin-top: 10px;
         background-color: #f5f1e0;
-        border: 0px;
+        border: 0;
 }
 .output_area pre {
         padding-top: 3;
         margin-top: -25px;
         margin-bottom: 10px;
-        border: 0px;
+        border: 0;
         padding-left: 2em;
 }
 .pytest_card {
@@ -1293,7 +1293,7 @@ h4 code {
 }
 
 .gsc-search-box.gsc-search-box-tools table {
-  margin-bottom: 0px !important;
+  margin-bottom: 0 !important;
 }
 .gsc-input, .gsc-search-button {
     padding: 0;

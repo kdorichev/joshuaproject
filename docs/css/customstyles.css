@@ -379,12 +379,12 @@ a.accordion-toggle, a.accordion-collapsed {
 .nav ul {
     padding: 0;
     /*margin: 0 0 0 18px;*/
-    margin:0px;
+    margin:0;
 }
 
 .nav {
     /* padding: 4px;*/
-    padding:0px;
+    padding:0;
     margin: 0;
 }
 
@@ -443,7 +443,7 @@ background-color: #347DBE;
 }
 
 ul#mysidebar {
-    border-radius:0px;
+    border-radius:0;
 }
 
 .nav ul li ul li a {
@@ -844,7 +844,7 @@ p.required, p.dataType {display: block; color: #c0c0c0; font-size: 80%; margin-l
 dd {margin-left:20px;}
 
 .post-content img.inline {
-    margin:0px;
+    margin:0;
     margin-bottom:6px;
 }
 .panel-heading {
@@ -1157,7 +1157,7 @@ div.content {
 }
 
 .box1 {
-    margin-left:0px;
+    margin-left:0;
 }
 
 button.btn.btn-default.btn-lg.modalButton1 {

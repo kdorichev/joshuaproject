@@ -16,12 +16,11 @@ host: 127.0.0.1
 port: 4000
 # the port where the preview is rendered.
 
+#exclude: [vendor]
 exclude:
   - .idea/
   - .gitignore
   - vendor
- 
-exclude: [vendor]
 
 highlighter: rouge
 markdown: kramdown

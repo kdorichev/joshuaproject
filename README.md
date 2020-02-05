@@ -76,31 +76,31 @@ diff.head()
   </thead>
   <tbody>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>Aland Islands</td>
       <td>NaN</td>
       <td>AX</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>Algeria</td>
       <td>AG</td>
       <td>DZ</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>American Samoa</td>
       <td>AQ</td>
       <td>AS</td>
     </tr>
     <tr>
-      <td>5</td>
+      <th>5</th>
       <td>Andorra</td>
       <td>AN</td>
       <td>AD</td>
     </tr>
     <tr>
-      <td>7</td>
+      <th>7</th>
       <td>Anguilla</td>
       <td>AV</td>
       <td>AI</td>
@@ -149,19 +149,19 @@ cc.data[cc.data.FIPS.isna()]
   </thead>
   <tbody>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>Aland Islands</td>
       <td>NaN</td>
       <td>AX</td>
     </tr>
     <tr>
-      <td>27</td>
+      <th>27</th>
       <td>Bonaire, Sint Eustatius and Saba</td>
       <td>NaN</td>
       <td>BQ</td>
     </tr>
     <tr>
-      <td>236</td>
+      <th>236</th>
       <td>United States Minor Outlying Islands</td>
       <td>NaN</td>
       <td>UM</td>
@@ -173,15 +173,17 @@ cc.data[cc.data.FIPS.isna()]
 
 
 ```python
-cc.like('French')
+cc.like('United')
 ```
 
 
 
 
-    [{'cname': 'French Guiana', 'FIPS': 'FG', 'ISO': 'GF'},
-     {'cname': 'French Polynesia', 'FIPS': 'FP', 'ISO': 'PF'},
-     {'cname': 'French Southern Territories', 'FIPS': 'FS', 'ISO': 'TF'}]
+    [{'cname': 'Tanzania, United Republic of', 'FIPS': 'TZ', 'ISO': 'TZ'},
+     {'cname': 'United Arab Emirates', 'FIPS': 'AE', 'ISO': 'AE'},
+     {'cname': 'United Kingdom', 'FIPS': 'UK', 'ISO': 'GB'},
+     {'cname': 'United States', 'FIPS': 'US', 'ISO': 'US'},
+     {'cname': 'United States Minor Outlying Islands', 'FIPS': nan, 'ISO': 'UM'}]
 
 
 

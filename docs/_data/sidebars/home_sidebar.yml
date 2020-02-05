@@ -15,9 +15,6 @@ entries:
     - output: web,pdf
       title: Country Codes
       url: /countrycodes
-    - output: web,pdf
-      title: Title
-      url: /Untitled
     output: web
     title: joshuaproject
   output: web

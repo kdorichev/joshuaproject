@@ -18,6 +18,7 @@ index = {"api_key": "00_url.ipynb",
          "url_cntry.__doc__": "00_url.ipynb",
          "url_lang": "00_url.ipynb",
          "url_lang.__doc__": "00_url.ipynb",
+         "__doc__": "01_countrycodes.ipynb",
          "CountryCodes": "01_countrycodes.ipynb"}
 
 modules = ["url.py",
